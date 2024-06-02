@@ -176,6 +176,9 @@
       </div>
     </div>
   </nav>
+  <div class="custom-progress-container">
+    <div class="custom-progress-bar" id="customProgressBar"></div>
+  </div>
   <section id="home-section" class="hero">
     <div class="home-slider  owl-carousel">
       <div class="slider-item ">
@@ -567,9 +570,9 @@
             <span class="date">2024-Present</span>
             <h2>Software Developer</h2>
             <span class="position">SPRK Technologies</span>
-            <p class="mt-4">SPRK Technologies, a top software company and institute , Currently undergoing
-              Java training at Spark Technologies, mastering core concepts and practical application.
-              Acquiring proficiency in Java programming through challenging coursework.
+            <p class="mt-4">"I am certified by SPRK Technologies, a prominent software company and institute, where I
+              underwent Java training. Through this program, I honed core Java concepts and practical skills,
+              attaining proficiency in Java programming for real-world applications.
             <ul>
               <li>Acquired proficiency in Java programming through intensive coursework.</li>
               <li>Prepared to leverage Java expertise in live projects.</li>
@@ -585,7 +588,8 @@
             <span class="date">2023-Present</span>
             <h2>Freelance Cloud Solutions</h2>
             <span class="position">Cloud Engineer</span>
-            <p class="mt-4">Offer tailored cloud solutions using AWS services like EC2, S3, IAM, and more.
+            <p class="mt-4">Offer tailored cloud solutions using AWS services like EC2, S3, IAM, RDS, Dynamo DB and
+              more.
               Deliver scalable, secure, and cost-effective solutions to meet clients' specific business needs.
             <ul>
               <li>Researching market trends to meet client demands.</li>
@@ -991,6 +995,14 @@
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/scrollax.min.js"></script>
+  <script>
+    window.onscroll = function () {
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (scrollTop / scrollHeight) * 100;
+      document.getElementById('customProgressBar').style.width = scrolled + '%';
+    };
+  </script>
 
   <script src="js/main.js"></script>
   <script>
