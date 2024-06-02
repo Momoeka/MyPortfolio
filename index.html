@@ -33,14 +33,31 @@
       padding-bottom: 4rem;
     }
 
-    .about-mf .about-img {
+    /* -------------------------------------------------------- */
+    .about-mf .about-img,
+    .about-mf .about-img2 {
       margin-bottom: 2rem;
+      height: 200px;
+      /* Set a fixed height for the container */
+      overflow: hidden;
+      /* Hide overflow if images exceed container size */
     }
 
     .about-mf .about-img img {
-      margin-left: 10px;
+      max-width: 100%;
+      /* Ensure images don't exceed container width */
+      height: auto;
+      /* Maintain aspect ratio */
     }
 
+    .about-mf .about-img2 img {
+      max-width: 50%;
+      /* Resize the width to half of its original size */
+      height: auto;
+      /* Maintain aspect ratio */
+    }
+
+    /* ----------------------------------------- */
     .skill-mf .progress {
       background-color: #cde1f8;
       margin: 0.5rem 0 1.2rem;
@@ -117,7 +134,12 @@
       }
 
       .about-img img {
-        content: url("images/coatwa.png");
+        content: url("images/headline2.png");
+      }
+
+      .about-img2 img {
+        content: url("images/army00.jpg");
+        /* Portfolio-main\images\army00.jpg */
       }
     }
   </style>
@@ -383,7 +405,7 @@
                 <div class="overlay">
                   <div class="row">
                     <div class="col-sm-6 col-md-5">
-                      <div class="about-img">
+                      <div class="about-img2">
                         <img src="images/army00.jpg" class="img-fluid rounded b-shadow-a" alt="">
                       </div>
                     </div>
