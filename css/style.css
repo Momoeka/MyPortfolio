@@ -7441,6 +7441,8 @@ a.close.disabled {
   padding-bottom: 20px;
   color: #fff;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
 }
 
 @-webkit-keyframes spinner-border {
