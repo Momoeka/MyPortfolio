@@ -575,14 +575,14 @@
         <div id="carouselCertifications" class="carousel slide mt-5" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="images/AWS Certified Cloud Practitioner certificate_page-0001.jpg" class="d-block w-100"
-                alt="AWS Certified Cloud Practitioner" onclick="showModal(this)">
+              <img src="images/AWS Certified Cloud Practitioner.jpg" class="d-block w-100" alt="NCC Image 1"
+                onclick="showModal(this)">
               <div class="carousel-caption d-none d-md-block">
                 <h5>AWS - Certified Cloud Practitioner</h5>
               </div>
             </div>
             <div class="carousel-item">
-              <img src="images/KodeKloud.png" class="d-block w-100" alt="Docker KodeKloud" onclick="showModal(this)">
+              <img src="images/KodeKloud.png" class="d-block w-100" alt="NCC Image 2" onclick="showModal(this)">
               <div class="carousel-caption d-none d-md-block">
                 <h5>Docker - KodeKloud</h5>
               </div>
@@ -618,6 +618,7 @@
             </div>
           </div>
         </div>
+
         <br>
         <br>
 
@@ -1078,15 +1079,17 @@
       const modalImage = document.getElementById('modalImage');
       const downloadButton = document.getElementById('downloadButton');
 
-      modalImage.src = element.src;
+      const imageUrl = element.src;
+      const imageName = imageUrl.substring(imageUrl.lastIndexOf('/') + 1);
 
-      const fileName = element.src.split('/').pop();
-      downloadButton.href = element.src;
-      downloadButton.download = fileName;
+      modalImage.src = imageUrl;
+      downloadButton.href = imageUrl;
+      downloadButton.download = imageName;
 
       $('#imageModal').modal('show');
     }
   </script>
+
   <script src="js/main.js"></script>
   <script>
     function gitClick() {
