@@ -1080,7 +1080,7 @@
       const downloadButton = document.getElementById('downloadButton');
 
       const imageUrl = element.src;
-      const imageName = imageUrl.substring(imageUrl.lastIndexOf('/') + 1);
+      const imageName = imageUrl.substring(imageUrl.lastIndexOf('/') + 1).replace(/%20/g, '_');
 
       modalImage.src = imageUrl;
       downloadButton.href = imageUrl;
@@ -1088,6 +1088,7 @@
 
       $('#imageModal').modal('show');
     }
+
   </script>
 
   <script src="js/main.js"></script>
