@@ -1074,13 +1074,12 @@
       document.getElementById('customProgressBar').style.width = scrolled + '%';
     };
   </script>
-  <script>
-    function showModal(element) {
+  <script>function showModal(element) {
       const modalImage = document.getElementById('modalImage');
       const downloadButton = document.getElementById('downloadButton');
 
       const imageUrl = element.src;
-      const imageName = imageUrl.substring(imageUrl.lastIndexOf('/') + 1).replace(/%20/g, '_');
+      const imageName = decodeURIComponent(imageUrl.substring(imageUrl.lastIndexOf('/') + 1));
 
       modalImage.src = imageUrl;
       downloadButton.href = imageUrl;
