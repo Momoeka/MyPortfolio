@@ -237,6 +237,9 @@
                 <p>
                   <a href="https://www.instagram.com/er.enayat/" class="btn btn-primary py-3 px-4 " target="_blank">My
                     Instagram</a>
+                  <br>
+                  <br>
+
                   <a href="https://in.linkedin.com/in/sayed-mohammad-firdousi-7895951a7"
                     class="btn btn-white btn-outline-white py-3 px-4" target="_blank">My Linkedin</a>
                 </p>
@@ -573,15 +576,15 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img src="images/AWS Certified Cloud Practitioner certificate_page-0001.jpg" class="d-block w-100"
-                alt="NCC Image 1" onclick="showModal(this)">
+                alt="AWS Certified Cloud Practitioner" onclick="showModal(this)">
               <div class="carousel-caption d-none d-md-block">
                 <h5>AWS - Certified Cloud Practitioner</h5>
               </div>
             </div>
             <div class="carousel-item">
-              <img src="images/KodeKloud.png" class="d-block w-100" alt="NCC Image 2" onclick="showModal(this)">
+              <img src="images/KodeKloud.png" class="d-block w-100" alt="Docker KodeKloud" onclick="showModal(this)">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Docker - from KodeKloud</h5>
+                <h5>Docker - KodeKloud</h5>
               </div>
             </div>
           </div>
@@ -1076,9 +1079,11 @@
       const downloadButton = document.getElementById('downloadButton');
 
       modalImage.src = element.src;
-      downloadButton.onclick = function () {
-        window.open(element.src, '_blank');
-      };
+
+      const fileName = element.src.split('/').pop();
+      downloadButton.href = element.src;
+      downloadButton.download = fileName;
+
       $('#imageModal').modal('show');
     }
   </script>
