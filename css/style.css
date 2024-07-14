@@ -69,6 +69,35 @@ section {
   /* Light background for contrast */
 }
 
+/* --------------------------------------------------- */
+/* this is eks and clf moving  */
+.img-container {
+  position: relative;
+  width: 100%;
+  height: 410px; /* Adjust based on your image sizes */
+  overflow: hidden;
+}
+.image-swap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.image-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.image-hidden-left {
+  transform: translateX(-100%);
+}
+.image-hidden-right {
+  transform: translateX(100%);
+}
+/* --------------------------------------------------- */
+/* this is eks and clf moving  */
 .custom-progress-container {
   width: 100%;
   height: 6px;
