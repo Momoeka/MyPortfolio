@@ -133,14 +133,30 @@
       right: 0;
       z-index: 1000;
       padding: 1rem 2rem;
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+      background: rgba(245, 245, 245, 0.4);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 0.6rem 2rem;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="dark"] .navbar.scrolled {
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .navbar {
+      background: rgba(27, 27, 27, 0.4);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     }
 
     .nav-links {
@@ -164,13 +180,22 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--text);
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      border-radius: 2px;
       transition: width 0.3s ease;
     }
 
     .nav-links a:hover::after,
     .nav-links a.active::after {
       width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--accent-dark);
+    }
+
+    [data-theme="dark"] .nav-links a.active {
+      color: var(--accent);
     }
 
     .nav-logo {
@@ -323,8 +348,10 @@
     }
 
     .btn-primary-custom:hover {
-      background: transparent;
-      color: var(--text);
+      background: var(--accent-dark);
+      color: #fff;
+      border-color: var(--accent-dark);
+      box-shadow: 0 4px 20px rgba(182, 62, 150, 0.3);
     }
 
     .btn-outline-custom {
@@ -343,8 +370,9 @@
     }
 
     .btn-outline-custom:hover {
-      background: var(--text);
-      color: var(--bg);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 4px 20px rgba(88, 230, 217, 0.2);
     }
 
     /* Hire Me Rotating Badge */
@@ -1087,6 +1115,7 @@
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.6s ease, transform 0.6s ease;
+      transition-delay: var(--stagger, 0s);
     }
 
     .fade-in.visible {
@@ -1376,6 +1405,304 @@
       }
     }
 
+    /* ============================================
+       ANIMATED GRADIENT TEXT ON HERO NAME
+    ============================================ */
+    .hero-content h1 .name-gradient {
+      background: linear-gradient(270deg, var(--accent), var(--accent-dark), #6366f1, var(--accent));
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 4s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ============================================
+       MOUSE GLOW ON CARDS
+    ============================================ */
+    .project-card, .skill-category, .testimonial-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-glow {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(88,230,217,0.15) 0%, transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    .project-card:hover .card-glow,
+    .skill-category:hover .card-glow,
+    .testimonial-card:hover .card-glow {
+      opacity: 1;
+    }
+
+    .project-card > *:not(.card-glow),
+    .skill-category > *:not(.card-glow),
+    .testimonial-card > *:not(.card-glow) {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============================================
+       PARALLAX IMAGES
+    ============================================ */
+    .parallax-img {
+      transition: transform 0.1s ease-out;
+      will-change: transform;
+    }
+
+    /* ============================================
+       MAGNETIC BUTTONS
+    ============================================ */
+    .magnetic-btn {
+      transition: transform 0.2s ease-out;
+    }
+
+    /* ============================================
+       TEXT SCRAMBLE
+    ============================================ */
+    .scramble-text {
+      display: inline-block;
+    }
+
+    /* ============================================
+       HERO PARTICLES
+    ============================================ */
+    .hero {
+      position: relative;
+    }
+
+    .page-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .page-particles .particle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0;
+      animation: floatParticle linear infinite;
+    }
+
+    @keyframes floatParticle {
+      0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0);
+      }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% {
+        opacity: 0;
+        transform: translateY(-100vh) translateX(60px);
+      }
+    }
+
+    /* ============================================
+       TECH STACK MARQUEE
+    ============================================ */
+    .marquee-section {
+      padding: 2rem 0;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 30s linear infinite;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .marquee-item:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .marquee-item i {
+      font-size: 1.2rem;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ============================================
+       ANIMATED TIMELINE
+    ============================================ */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent-dark));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 1.5rem 0 2.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      top: 1.8rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 3px var(--accent);
+      z-index: 2;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .timeline-item:hover::before {
+      transform: scale(1.3);
+      box-shadow: 0 0 0 5px rgba(88, 230, 217, 0.3);
+    }
+
+    .timeline-item .timeline-date {
+      font-size: 0.85rem;
+      color: var(--accent-dark);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    [data-theme="dark"] .timeline-item .timeline-date {
+      color: var(--accent);
+    }
+
+    .timeline-item .timeline-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-content {
+      transform: translateX(6px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent);
+    }
+
+    .timeline-item .timeline-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-item .timeline-content .exp-role {
+      font-weight: 600;
+      color: var(--accent-dark);
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    [data-theme="dark"] .timeline-item .timeline-content .exp-role {
+      color: var(--accent);
+    }
+
+    .timeline-item .timeline-content .exp-location {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-item .timeline-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline-item .timeline-content ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.3rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .timeline-item .timeline-content ul li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    [data-theme="dark"] .timeline-item .timeline-content ul li::before {
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .timeline {
+        padding-left: 30px;
+      }
+
+      .timeline::before {
+        left: 10px;
+      }
+
+      .timeline-item::before {
+        left: -27px;
+        width: 12px;
+        height: 12px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1422,19 +1749,22 @@
   <!-- ============================================
        HERO SECTION
   ============================================ -->
+  <!-- Page Particles -->
+  <div class="page-particles" id="pageParticles"></div>
+
   <section class="hero" id="home">
     <div class="hero-image fade-in">
-      <img src="images/first.png" alt="Sayed Mohammad Firdousi" loading="lazy">
+      <img src="images/first.png" alt="Sayed Mohammad Firdousi" loading="lazy" class="parallax-img" data-speed="0.03">
     </div>
     <div class="hero-content fade-in">
       <span class="typed-role" id="typedRole"></span>
-      <h1>Building Scalable Systems With <span class="gradient-text">Code And Cloud.</span></h1>
+      <h1>Building <span class="name-gradient">Scalable Systems</span> With <span class="gradient-text">Code And Cloud.</span></h1>
       <p>Backend Developer and Cloud Engineer with 1.5+ years of experience building production CRM platforms, backend services, and cloud-native workflows. Strong in Node.js, Python, PostgreSQL, REST APIs, and AWS.</p>
       <div class="hero-buttons">
-        <a href="https://drive.google.com/file/d/1FPu0PjS73nFnchfZktU-I-ntA5eLQ-BS/view?usp=sharing" class="btn-primary-custom" target="_blank">
+        <a href="https://drive.google.com/file/d/1FPu0PjS73nFnchfZktU-I-ntA5eLQ-BS/view?usp=sharing" class="btn-primary-custom magnetic-btn" target="_blank">
           Resume <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i>
         </a>
-        <a href="#contact" class="btn-outline-custom">Contact</a>
+        <a href="#contact" class="btn-outline-custom magnetic-btn">Contact</a>
       </div>
     </div>
   </section>
@@ -1465,7 +1795,7 @@
     </div>
     <div class="about-grid">
       <div class="about-image fade-in">
-        <img src="images/image.png" alt="Mohammad Portrait" loading="lazy">
+        <img src="images/image.png" alt="Mohammad Portrait" loading="lazy" class="parallax-img" data-speed="0.03">
       </div>
       <div class="about-text fade-in">
         <p>Backend Developer and Cloud Engineer with a focus on building production-grade systems that are scalable, secure, and efficient. I specialize in Node.js, Python, PostgreSQL, and AWS cloud services.</p>
@@ -1574,10 +1904,10 @@
       <h2>Experience</h2>
       <div class="section-divider"></div>
     </div>
-    <div class="experience-list">
-      <div class="experience-item fade-in">
-        <div class="exp-date">Jan 2026 - Present</div>
-        <div class="exp-content">
+    <div class="timeline">
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">Jan 2026 - Present</div>
+        <div class="timeline-content">
           <h3>Rowan Rose Solicitors</h3>
           <div class="exp-role">Backend Developer & Cloud Engineer</div>
           <div class="exp-location">Remote, UK</div>
@@ -1588,9 +1918,9 @@
         </div>
       </div>
 
-      <div class="experience-item fade-in">
-        <div class="exp-date">Jul 2024 - Apr 2025</div>
-        <div class="exp-content">
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">Jul 2024 - Apr 2025</div>
+        <div class="timeline-content">
           <h3>Electrolab Pvt Ltd</h3>
           <div class="exp-role">Business Analyst</div>
           <div class="exp-location">Ghansoli, Navi Mumbai</div>
@@ -1601,9 +1931,9 @@
         </div>
       </div>
 
-      <div class="experience-item fade-in">
-        <div class="exp-date">Feb 2023 - Jun 2024</div>
-        <div class="exp-content">
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">Feb 2023 - Jun 2024</div>
+        <div class="timeline-content">
           <h3>CloudWhiz Freelance</h3>
           <div class="exp-role">Freelance Backend Developer & Cloud Engineer</div>
           <div class="exp-location">Remote, Netherlands</div>
@@ -2119,6 +2449,120 @@
       });
     }
 
+    // ============================================
+    // PAGE PARTICLES
+    // ============================================
+    (function createParticles() {
+      const container = document.getElementById('pageParticles');
+      if (!container) return;
+      const colors = ['rgba(88,230,217,0.35)', 'rgba(182,62,150,0.25)', 'rgba(99,102,241,0.25)'];
+      for (let i = 0; i < 100; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 6 + 2;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.bottom = '-10px';
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.animationDuration = (Math.random() * 12 + 8) + 's';
+        p.style.animationDelay = (Math.random() * 15) + 's';
+        container.appendChild(p);
+      }
+    })();
+
+    // ============================================
+    // MOUSE GLOW ON CARDS
+    // ============================================
+    document.querySelectorAll('.project-card, .skill-category, .testimonial-card').forEach(card => {
+      const glow = document.createElement('div');
+      glow.className = 'card-glow';
+      card.appendChild(glow);
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        glow.style.left = (e.clientX - rect.left) + 'px';
+        glow.style.top = (e.clientY - rect.top) + 'px';
+      });
+    });
+
+    // ============================================
+    // PARALLAX ON IMAGES
+    // ============================================
+    if (window.matchMedia('(min-width: 769px)').matches) {
+      window.addEventListener('scroll', () => {
+        document.querySelectorAll('.parallax-img').forEach(img => {
+          const speed = parseFloat(img.dataset.speed) || 0.03;
+          const rect = img.getBoundingClientRect();
+          const offset = (window.innerHeight / 2 - rect.top - rect.height / 2) * speed;
+          img.style.transform = `translateY(${offset}px)`;
+        });
+      });
+    }
+
+    // ============================================
+    // MAGNETIC BUTTONS
+    // ============================================
+    if (window.matchMedia('(pointer: fine)').matches) {
+      document.querySelectorAll('.magnetic-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', () => btn.classList.add('mag-active'));
+        btn.addEventListener('mousemove', (e) => {
+          if (!btn.classList.contains('mag-active')) return;
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.classList.remove('mag-active');
+          btn.style.transform = '';
+        });
+      });
+    }
+
+    // ============================================
+    // TEXT SCRAMBLE ON SECTION HEADERS
+    // ============================================
+    class TextScramble {
+      constructor(el) {
+        this.el = el;
+        this.chars = '!<>-_\\/[]{}—=+*^?#________';
+        this.originalText = el.textContent;
+        this.done = false;
+      }
+      scramble() {
+        if (this.done) return;
+        this.done = true;
+        const text = this.originalText;
+        const length = text.length;
+        let iteration = 0;
+        const interval = setInterval(() => {
+          this.el.textContent = text.split('').map((char, i) => {
+            if (i < iteration) return text[i];
+            return this.chars[Math.floor(Math.random() * this.chars.length)];
+          }).join('');
+          iteration += 1 / 2;
+          if (iteration >= length) {
+            this.el.textContent = text;
+            clearInterval(interval);
+          }
+        }, 30);
+      }
+    }
+
+    document.querySelectorAll('.section-header h2').forEach(h2 => {
+      const scrambler = new TextScramble(h2);
+      const scrambleObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            scrambler.scramble();
+            scrambleObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      scrambleObserver.observe(h2);
+    });
+
     // 3D tilt on project cards
     document.querySelectorAll('.project-card, .skill-category').forEach(card => {
       card.addEventListener('mousemove', (e) => {
@@ -2136,6 +2580,91 @@
         card.style.transform = '';
       });
     });
+
+    // ============================================
+    // NAVBAR SHRINK ON SCROLL
+    // ============================================
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // ============================================
+    // STAGGERED FADE-IN
+    // ============================================
+    document.querySelectorAll('.skills-grid, .projects-grid, .testimonials-grid, .cert-list').forEach(grid => {
+      const children = grid.querySelectorAll('.fade-in');
+      children.forEach((child, i) => {
+        child.style.setProperty('--stagger', (i * 0.1) + 's');
+      });
+    });
+
+    // ============================================
+    // ANIMATED GRADIENT FAVICON
+    // ============================================
+    (function animateFavicon() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 64;
+      canvas.height = 64;
+      const ctx = canvas.getContext('2d');
+      let angle = 0;
+      const link = document.querySelector("link[rel='icon']") || document.createElement('link');
+      link.rel = 'icon';
+      link.type = 'image/png';
+      if (!link.parentNode) document.head.appendChild(link);
+
+      function draw() {
+        angle += 0.02;
+        const x = 32 + Math.cos(angle) * 30;
+        const y = 32 + Math.sin(angle) * 30;
+
+        const grad = ctx.createLinearGradient(x, 0, 64 - x, 64);
+        grad.addColorStop(0, '#58E6D9');
+        grad.addColorStop(0.5, '#B63E96');
+        grad.addColorStop(1, '#6366f1');
+
+        // Background
+        ctx.beginPath();
+        ctx.roundRect(0, 0, 64, 64, 14);
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        // Text
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 28px Montserrat, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('SF', 32, 34);
+
+        link.href = canvas.toDataURL('image/png');
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // ============================================
+    // DARK MODE PARTICLE COLOR CHANGE
+    // ============================================
+    (function updateParticleColors() {
+      function setParticleColors() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.querySelectorAll('.page-particles .particle').forEach(p => {
+          const colors = isDark
+            ? ['rgba(88,230,217,0.7)', 'rgba(182,62,150,0.6)', 'rgba(99,102,241,0.6)']
+            : ['rgba(88,230,217,0.35)', 'rgba(182,62,150,0.25)', 'rgba(99,102,241,0.25)'];
+          p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        });
+      }
+      // Set on load
+      setTimeout(setParticleColors, 100);
+      // Watch for theme changes
+      const observer = new MutationObserver(setParticleColors);
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    })();
   </script>
 
 </body>
