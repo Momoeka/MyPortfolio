@@ -1,0 +1,72 @@
+\documentclass{resume} % Use the custom resume.cls style
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fontawesome}
+\usepackage[left=0.35in,top=0.25in,right=0.35in,bottom=0.25in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{SAYED MOHAMMAD FIRDOUSI} % Your name
+
+\address{\href{https://github.com/Momoeka}{Github} \\ \href{https://www.linkedin.com/in/sayed-mohammad-firdousi-7895951a7/}{LinkedIn} \\ \href{https://momoeka.github.io/MyPortfolio/}{Portfolio} \\ \href{mailto:mohammadsayed722@gmail.com}{\faEnvelope\ mohammadsayed722@gmail.com}}
+\address{ \faPhone\  +91 8929023900 \hfill Mumbai, Maharashtra }
+\begin{document}
+
+\begin{rSection}{SUMMARY}
+Full-stack developer and cloud engineer with 1.5+ years of experience shipping production SaaS platforms, CRM systems, and serverless workflows. Built AgentLens -- an AI agent safety platform with real-time risk scoring across 32 API endpoints. Proven end-to-end product ownership from database design to deployment.
+\end{rSection}
+
+\begin{rSection}{SKILLS}
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Languages \& Frameworks & Node.js, Python, TypeScript, React, Next.js, Flask, REST APIs \\
+Cloud \& Infrastructure & AWS (Lambda, S3, EC2, RDS, API Gateway, DynamoDB), Docker, Git \\
+Databases \& Caching & PostgreSQL, MySQL, Supabase, Redis \\
+AI \& Third-Party APIs & Claude, OpenAI, Gemini, Clerk Auth, Azure MSAL, OnlyOffice \\
+Frontend \& UI & Tailwind CSS, Framer Motion, Socket.IO, Recharts, SIP.js \\
+Automation \& Tooling & Selenium, Playwright, n8n, Zapier, Plotly \\
+\end{tabular}
+\end{rSection}
+
+\begin{rSection}{EXPERIENCE}
+
+\textbf{Rowan Rose Solicitors} \hfill Jan 2026 -- Present\\
+Sole Full-Stack Developer \& Cloud Engineer \hfill \textit{Remote, UK}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt]
+    \item Sole developer building and maintaining two production CRM platforms (Legal + Sales) -- handling backend, frontend, cloud infrastructure, database design, and all third-party integrations.
+    \item Engineered client intake, case management, lead pipelines, document workflows, e-signatures, VoIP call tracking, real-time dashboards, and RBAC across 5 user roles.
+    \item Architected entire cloud layer on AWS (Lambda, S3, RDS, API Gateway) with serverless pipelines for document processing, automated workflows, and secure data storage.
+\end{itemize}
+
+\textbf{Electrolab Pvt Ltd} \hfill Jul 2024 -- Apr 2025\\
+Business Analyst \hfill \textit{Ghansoli, Navi Mumbai}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt]
+    \item Automated data pipelines in Python, cutting reporting time by 40\%. Built KPI dashboards with Plotly.
+\end{itemize}
+
+\textbf{CloudWhiz Freelance} \hfill Feb 2023 -- Jun 2024\\
+Freelance Backend Developer \& Cloud Engineer \hfill \textit{Remote, Netherlands}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt]
+    \item Delivered 10+ backend and cloud projects including payment processing, API integrations, and AWS infrastructure for international clients.
+\end{itemize}
+
+\end{rSection}
+
+\begin{rSection}{PROJECTS}
+\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt]
+    \item \textbf{AgentLens -- AI Agent Safety Platform:} SaaS platform (32 API routes, 20 DB migrations) intercepting AI agent tool calls, scoring risk 0--100 via Claude/OpenAI/Gemini, enforcing human approvals. Team RBAC, webhooks, audit export, rate limiting. \textit{Next.js, TypeScript, Supabase, Clerk, Redis.}
+    \item \textbf{Payment Processing System:} Secure pipeline to parse MT940 bank files, validate transactions, and transmit payment data with audit logging. \textit{Python, Node.js, PostgreSQL.}
+    \item \textbf{Serverless Data Processing:} Event-driven AWS architecture (Lambda, S3, API Gateway, DynamoDB) for scalable data ingestion with zero server management. \textit{Python, AWS.}
+\end{itemize}
+\end{rSection}
+
+\begin{rSection}{EDUCATION}
+\textbf{M.Tech in Computer Science}, Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (M.P.) \hfill 2025 -- 2027\\
+\textbf{B.Tech in Computer Science}, Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (M.P.) \hfill 2022 -- 2025\\
+\textbf{Diploma in Electronics Engineering}, Jamia Millia Islamia, New Delhi \hfill 2019 -- 2022
+\end{rSection}
+
+\begin{rSection}{CERTIFICATIONS}
+\textbf{AWS Certified Cloud Practitioner}, Amazon Web Services \hfill Jun 2024\\
+\textbf{AWS Knowledge: Amazon EKS}, Amazon Web Services \hfill Jul 2024
+\end{rSection}
+
+\end{document}
