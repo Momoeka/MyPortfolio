@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -l \"export\" /c/agentlens/src/lib/*.ts)"
+    ]
+  }
+}
