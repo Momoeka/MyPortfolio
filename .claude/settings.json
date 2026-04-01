@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep -l \"export\" /c/agentlens/src/lib/*.ts)"
+      "Bash(grep -l \"export\" /c/agentlens/src/lib/*.ts)",
+      "Bash(ping -n 1 github.com)",
+      "Bash(git push:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
