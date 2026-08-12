@@ -1,0 +1,7 @@
+# Local working files — not part of the published site
+index.old.html
+PROMPT.md
+
+# OS / editor cruft
+.DS_Store
+**/.DS_Store
