@@ -599,7 +599,7 @@
         </h1>
         <p class="hero-sub rv d2">1.5+ years shipping production CRMs, SaaS platforms and serverless AWS workflows — from schema to deploy.</p>
         <div class="btn-row rv d3">
-          <a class="btn solid mag" href="https://drive.google.com/file/d/1eD6OPPvxZGXQCYsXwkBRscjQuMZvtP34/view?usp=sharing" target="_blank" rel="noopener">View Resume ↗</a>
+          <a class="btn solid mag" href="https://drive.google.com/file/d/1tztJdAu3mSX6Rv8g1EtKkgAmfp9Ko4KJ/view?usp=sharing" target="_blank" rel="noopener">View Resume ↗</a>
           <a class="btn mag" href="#contact">Get in touch</a>
         </div>
       </div>
@@ -618,7 +618,7 @@
         </div>
         <div class="snap rv d1">
           <dt>Shipped</dt>
-          <dd>AgentLens — AI agent safety<small>32 API routes · live in production</small></dd>
+          <dd>AgentLens — AI agent safety<small>47 endpoints · live in production</small></dd>
         </div>
         <div class="snap rv d2">
           <dt>Cloud</dt>
@@ -649,7 +649,7 @@
           <dl class="facts rv d1">
             <div class="fact"><dt>Role</dt><dd><b>Backend developer & cloud engineer</b> — full-stack capable</dd></div>
             <div class="fact"><dt>Now</dt><dd>Sole developer on <b>two production CRMs</b> at Rowan Rose Solicitors — backend, frontend, AWS, every integration</dd></div>
-            <div class="fact"><dt>Building</dt><dd><b>AgentLens</b> — intercepts AI agent tool calls, scores risk 0–100, enforces human approval</dd></div>
+            <div class="fact"><dt>Building</dt><dd><b>AgentLens</b> — intercepts AI agent tool calls and grades each one safe, risky or destructive</dd></div>
             <div class="fact"><dt>Core stack</dt><dd>Node.js · Python · TypeScript · PostgreSQL · <b>AWS</b> · React</dd></div>
             <div class="fact"><dt>Before</dt><dd>Business Analyst at Electrolab · <b>10+ freelance</b> backend & cloud projects</dd></div>
             <div class="fact"><dt>Based</dt><dd>Mumbai, India — <b>working remotely with UK & EU teams</b></dd></div>
@@ -679,7 +679,7 @@
             <li><b>Shipped end to end:</b> client intake, case management, lead pipelines, e-signatures, VoIP tracking, live dashboards.</li>
             <li><b>Owns the whole cloud layer</b> — AWS Lambda, S3, RDS and API Gateway, with serverless document pipelines.</li>
           </ul>
-          <div class="wins"><span>2 platforms</span><span>5 user roles</span><span>Sole developer</span></div>
+          <div class="wins"><span>3 platforms</span><span>24 services</span><span>Sole developer</span></div>
         </article>
         <article class="commit rv">
           <p class="commit-head"><span aria-hidden="true">● </span><span class="hash">7c2d0b4</span> — Jul 2024 → Apr 2025</p>
@@ -806,33 +806,33 @@
         <div class="work-head"><span>Plate 01 — Production SaaS</span><span class="tag">● Live</span></div>
         <div class="work-body">
           <div>
-            <h3>AgentLens — AI Agent Safety Platform</h3>
-            <p class="metrics">32 API routes&nbsp;&nbsp;·&nbsp;&nbsp;20 DB migrations&nbsp;&nbsp;·&nbsp;&nbsp;3 LLM providers</p>
-            <p class="takeaway">Stops AI agents from doing damage — scores every tool call for risk, then blocks it until a human approves.</p>
+            <h3>AgentLens — AI Agent Observability</h3>
+            <p class="metrics">47 server endpoints&nbsp;&nbsp;·&nbsp;&nbsp;3 LLM providers&nbsp;&nbsp;·&nbsp;&nbsp;published npm CLI</p>
+            <p class="takeaway">Shows you what your AI coding agent actually did — every tool call in plain English, graded for risk.</p>
             <ul class="bullets">
-              <li><b>Real-time risk scoring</b> via Claude, OpenAI and Gemini</li>
-              <li><b>Audit trails</b> with AI-written explanations · team RBAC</li>
-              <li><b>Drops into</b> Claude Code, Cursor and Cline via npm SDK</li>
+              <li><b>Severity classification</b> — safe · risky · destructive — over a Gemini → OpenAI → Claude fallback chain</li>
+              <li><b>Plain-English audit trail</b> · team RBAC · session diffing · CSV/PDF export</li>
+              <li><b>One command to install</b> — auto-detects Claude Code, Cursor, Cline and Antigravity</li>
             </ul>
-            <div class="tech"><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>PostgreSQL</span><span>Clerk</span><span>Claude API</span><span>Redis</span><span>Tailwind</span></div>
+            <div class="tech"><span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Supabase</span><span>Clerk</span><span>Redis</span><span>Gemini</span><span>Claude API</span></div>
             <div class="work-links">
               <a href="https://agent-lens-gamma.vercel.app/" target="_blank" rel="noopener" data-cursor="view">Live demo ↗</a>
               <a href="https://github.com/Momoeka" target="_blank" rel="noopener" data-cursor="view">GitHub ↗</a>
             </div>
           </div>
-          <div class="schematic rv" aria-label="AgentLens architecture: agent calls are intercepted, risk-scored from zero to one hundred, approved by a human, then executed or denied and logged" role="img">
+          <div class="schematic rv" aria-label="AgentLens architecture: an agent tool call is intercepted, classified as safe, risky or destructive by a language model, then written to an audit trail with alerts on destructive actions" role="img">
             <svg viewBox="0 0 520 190">
               <rect class="sch-box" x="10" y="75" width="72" height="40"/><text class="sch-txt" x="46" y="99" text-anchor="middle">AGENT</text>
               <rect class="sch-box" x="122" y="75" width="90" height="40"/><text class="sch-txt" x="167" y="99" text-anchor="middle">INTERCEPT</text>
-              <rect class="sch-box hot" x="252" y="75" width="90" height="40"/><text class="sch-txt hot" x="297" y="99" text-anchor="middle">RISK 0–100</text>
-              <rect class="sch-box" x="382" y="20" width="118" height="40"/><text class="sch-txt" x="441" y="44" text-anchor="middle">HUMAN APPROVAL</text>
-              <rect class="sch-box hot" x="382" y="130" width="118" height="40"/><text class="sch-txt hot" x="441" y="154" text-anchor="middle">EXECUTE / DENY</text>
+              <rect class="sch-box hot" x="252" y="75" width="90" height="40"/><text class="sch-txt hot" x="297" y="99" text-anchor="middle">CLASSIFY</text>
+              <rect class="sch-box" x="382" y="20" width="118" height="40"/><text class="sch-txt" x="441" y="44" text-anchor="middle">AUDIT TRAIL</text>
+              <rect class="sch-box hot" x="382" y="130" width="118" height="40"/><text class="sch-txt hot" x="441" y="154" text-anchor="middle">DESTRUCTIVE ALERT</text>
               <path class="sch-line" pathLength="1" d="M82 95 H122"/>
               <path class="sch-line" pathLength="1" d="M212 95 H252"/>
               <path class="sch-line" pathLength="1" d="M342 95 L382 45"/>
-              <path class="sch-line" pathLength="1" d="M441 60 V130"/>
+              <path class="sch-line" pathLength="1" d="M342 95 L382 150"/>
               <text class="sch-txt" x="46" y="135" text-anchor="middle">TOOL CALL</text>
-              <text class="sch-txt" x="500" y="102" text-anchor="end">AUDIT LOG</text>
+              <text class="sch-txt" x="297" y="135" text-anchor="middle">SAFE / RISKY</text>
             </svg>
           </div>
         </div>
@@ -841,7 +841,7 @@
       <article class="plate work-plate rv">
         <div class="work-head"><span>Plate 02 — In production · Rowan Rose Solicitors</span><span class="tag priv">● Private</span></div>
         <div class="work-body">
-          <div class="schematic rv" aria-label="CRM architecture: client intake and case management feed e-signature, VoIP and dashboard modules on an AWS serverless layer of Lambda, S3, RDS and API Gateway" role="img">
+          <div class="schematic rv" aria-label="CRM architecture: intake, case management, e-signature, VoIP and dashboards sit above a fleet of twenty-four background services running on PostgreSQL, S3 and PM2" role="img">
             <svg viewBox="0 0 520 190">
               <rect class="sch-box" x="10" y="20" width="108" height="40"/><text class="sch-txt" x="64" y="44" text-anchor="middle">CLIENT INTAKE</text>
               <rect class="sch-box" x="158" y="20" width="100" height="40"/><text class="sch-txt" x="208" y="44" text-anchor="middle">CASE MGMT</text>
@@ -849,34 +849,82 @@
               <rect class="sch-box" x="374" y="20" width="56" height="40"/><text class="sch-txt" x="402" y="44" text-anchor="middle">VOIP</text>
               <rect class="sch-box" x="440" y="20" width="66" height="40"/><text class="sch-txt" x="473" y="44" text-anchor="middle">DASH</text>
               <rect class="sch-box hot" x="10" y="125" width="496" height="42"/>
-              <text class="sch-txt hot" x="258" y="151" text-anchor="middle">AWS — LAMBDA · S3 · RDS · API GATEWAY</text>
+              <text class="sch-txt hot" x="258" y="151" text-anchor="middle">24 SERVICES — POSTGRES · S3 · PM2 · LLM WORKERS</text>
               <path class="sch-line" pathLength="1" d="M118 40 H158"/>
               <path class="sch-line" pathLength="1" d="M64 60 V125"/>
               <path class="sch-line" pathLength="1" d="M208 60 V125"/>
               <path class="sch-line" pathLength="1" d="M331 60 V125"/>
               <path class="sch-line" pathLength="1" d="M402 60 V125"/>
               <path class="sch-line" pathLength="1" d="M473 60 V125"/>
-              <text class="sch-txt" x="10" y="105">RBAC × 5 ROLES</text>
+              <text class="sch-txt" x="10" y="105">RBAC · 74 PERMISSIONS</text>
             </svg>
           </div>
           <div>
-            <h3>Legal & Sales CRM Platform</h3>
-            <p class="metrics">5 user roles&nbsp;&nbsp;·&nbsp;&nbsp;E-sign&nbsp;&nbsp;·&nbsp;&nbsp;VoIP analytics</p>
-            <p class="takeaway">Two CRMs a law firm runs on daily — built and maintained entirely by me.</p>
+            <h3>Legal &amp; Sales CRM Platform</h3>
+            <p class="metrics">24 services&nbsp;&nbsp;·&nbsp;&nbsp;380+ endpoints&nbsp;&nbsp;·&nbsp;&nbsp;127 migrations</p>
+            <p class="takeaway">Two CRMs a UK law firm runs on daily — built, deployed and maintained entirely by me.</p>
             <ul class="bullets">
-              <li><b>Legal side:</b> client intake, case management, e-signatures</li>
-              <li><b>Sales side:</b> lead pipelines, VoIP call analytics, live dashboards</li>
-              <li><b>AWS serverless backend</b> — zero-downtime document processing</li>
+              <li><b>Legal side:</b> intake → document request → complaint → ombudsman, with LLM workers reading lender packs and drafting letters</li>
+              <li><b>Sales side:</b> browser dialer over SIP.js, automatic lead distribution, live floor monitor</li>
+              <li><b>Infrastructure:</b> 24 background services, and a planned AWS → on-premise cutover with a rollback path</li>
             </ul>
-            <div class="tech"><span>React</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Socket.IO</span><span>SIP.js</span><span>AWS Lambda</span><span>S3</span><span>RDS</span></div>
+            <div class="tech"><span>React</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Socket.IO</span><span>SIP.js</span><span>Gemini</span><span>AWS S3</span><span>PM2</span></div>
             <div class="work-links"><span class="priv-badge">🔒 Private — in production</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="plate work-plate rv">
+        <div class="work-head"><span>Plate 03 — Multi-tenant SaaS</span><span class="tag priv">● Private</span></div>
+        <div class="work-body">
+          <div>
+            <h3>DocIntel — Document Intelligence</h3>
+            <p class="metrics">73 endpoints&nbsp;&nbsp;·&nbsp;&nbsp;vision-model extraction&nbsp;&nbsp;·&nbsp;&nbsp;multi-tenant</p>
+            <p class="takeaway">Photograph an invoice, get clean structured data back — and it improves every time a human corrects it.</p>
+            <ul class="bullets">
+              <li><b>Vision model on AWS Bedrock</b> reads each page directly, returning mapped fields and a bounding box per value</li>
+              <li><b>Celery pipeline</b> with Redis-throttled model calls, confidence scoring and threshold auto-approve</li>
+              <li><b>Closed learning loop</b> — human corrections stored as weighted examples and fed into later prompts</li>
+            </ul>
+            <div class="tech"><span>FastAPI</span><span>Celery</span><span>Redis</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>React</span><span>AWS Bedrock</span><span>Docker</span></div>
+            <div class="work-links"><span class="priv-badge">🔒 Private — in production</span></div>
+          </div>
+          <div class="schematic rv" aria-label="DocIntel pipeline: an uploaded document is classified, read by a vision model, reviewed by a human and exported, with corrections fed back into the model prompt as a learning loop" role="img">
+            <svg viewBox="0 0 520 190">
+              <rect class="sch-box" x="10" y="20" width="76" height="40"/><text class="sch-txt" x="48" y="44" text-anchor="middle">UPLOAD</text>
+              <rect class="sch-box" x="106" y="20" width="86" height="40"/><text class="sch-txt" x="149" y="44" text-anchor="middle">CLASSIFY</text>
+              <rect class="sch-box hot" x="212" y="20" width="110" height="40"/><text class="sch-txt hot" x="267" y="44" text-anchor="middle">VISION MODEL</text>
+              <rect class="sch-box" x="342" y="20" width="80" height="40"/><text class="sch-txt" x="382" y="44" text-anchor="middle">REVIEW</text>
+              <rect class="sch-box" x="442" y="20" width="64" height="40"/><text class="sch-txt" x="474" y="44" text-anchor="middle">EXPORT</text>
+              <rect class="sch-box hot" x="106" y="125" width="316" height="42"/>
+              <text class="sch-txt hot" x="264" y="151" text-anchor="middle">LEARNING LOOP — CORRECTIONS RE-FED AS EXAMPLES</text>
+              <path class="sch-line" pathLength="1" d="M86 40 H106"/>
+              <path class="sch-line" pathLength="1" d="M192 40 H212"/>
+              <path class="sch-line" pathLength="1" d="M322 40 H342"/>
+              <path class="sch-line" pathLength="1" d="M422 40 H442"/>
+              <path class="sch-line" pathLength="1" d="M382 60 V125"/>
+              <path class="sch-line" pathLength="1" d="M267 125 V60"/>
+              <text class="sch-txt" x="474" y="80" text-anchor="middle">XLSX / CSV</text>
+            </svg>
           </div>
         </div>
       </article>
 
       <div class="work-grid-2">
         <article class="plate work-mini rv">
-          <div class="work-head"><span>Plate 03</span><span class="tag">● Live</span></div>
+          <div class="work-head"><span>Plate 04</span><span class="tag">● Live</span></div>
+          <div class="work-body single">
+            <div>
+              <h3>Cargoverse — Device Tracking</h3>
+              <p class="takeaway">Tracking portal for a logistics operator.</p>
+              <p class="desc">JWT in signed httpOnly cookies, re-checked against the database on every request so disabling an account kills live sessions instantly. Telemetry cached locally to spare upstream API quota.</p>
+              <div class="tech"><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>React</span><span>AWS EC2</span></div>
+              <div class="work-links"><a href="https://tracking.cargover.se/" target="_blank" rel="noopener" data-cursor="view">Live ↗</a></div>
+            </div>
+          </div>
+        </article>
+        <article class="plate work-mini rv d1">
+          <div class="work-head"><span>Plate 05</span><span class="tag">● Live</span></div>
           <div class="work-body single">
             <div>
               <h3>Weird — Luxury Fashion Website</h3>
@@ -887,11 +935,35 @@
             </div>
           </div>
         </article>
-        <article class="plate work-mini rv d1">
-          <div class="work-head"><span>Plate 04</span><span class="tag">● Live</span></div>
+        <article class="plate work-mini rv d2">
+          <div class="work-head"><span>Plate 06</span><span class="tag">● Live</span></div>
           <div class="work-body single">
             <div>
-              <h3>S.S. Classic Mould & Dies</h3>
+              <h3>Shahi Group — Precision Surveying</h3>
+              <p class="takeaway">Survey firm site driven by a scroll-scrubbed film.</p>
+              <p class="desc">A 240-frame image sequence scrubbed by scroll position, over a GIS, mapping, construction and aerial-survey service showcase.</p>
+              <div class="tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Canvas</span></div>
+              <div class="work-links"><a href="https://shahi-group.vercel.app/" target="_blank" rel="noopener" data-cursor="view">Live ↗</a></div>
+            </div>
+          </div>
+        </article>
+        <article class="plate work-mini rv">
+          <div class="work-head"><span>Plate 07</span><span class="tag">● Live</span></div>
+          <div class="work-body single">
+            <div>
+              <h3>Lumina Dental — Clinic Site</h3>
+              <p class="takeaway">Cosmetic dental clinic, booking-first.</p>
+              <p class="desc">Appointment flow with EMI options, doctor profiles, before/after comparison sliders, a technology showcase and an FAQ.</p>
+              <div class="tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Cloudflare Pages</span></div>
+              <div class="work-links"><a href="https://dental-6ze.pages.dev/" target="_blank" rel="noopener" data-cursor="view">Live ↗</a></div>
+            </div>
+          </div>
+        </article>
+        <article class="plate work-mini rv d1">
+          <div class="work-head"><span>Plate 08</span><span class="tag">● Live</span></div>
+          <div class="work-body single">
+            <div>
+              <h3>S.S. Classic Mould &amp; Dies</h3>
               <p class="takeaway">B2B storefront for a 25-year footwear-mould manufacturer.</p>
               <p class="desc">Product showcases, dark/light themes, multi-language and JSON-LD structured SEO.</p>
               <div class="tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>SEO</span></div>
@@ -900,7 +972,19 @@
           </div>
         </article>
         <article class="plate work-mini rv d2">
-          <div class="work-head"><span>Plate 05</span><span class="tag priv">● Private</span></div>
+          <div class="work-head"><span>Plate 09</span><span class="tag">● Live</span></div>
+          <div class="work-body single">
+            <div>
+              <h3>ARS Architect — Design Portfolio</h3>
+              <p class="takeaway">Architecture portfolio laid out like a printed edition.</p>
+              <p class="desc">Five sheets and six plates on landscape-led architecture, built as a paced editorial scroll rather than a gallery grid.</p>
+              <div class="tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>GitHub Pages</span></div>
+              <div class="work-links"><a href="https://momoeka.github.io/Ashwini/" target="_blank" rel="noopener" data-cursor="view">Live ↗</a></div>
+            </div>
+          </div>
+        </article>
+        <article class="plate work-mini rv">
+          <div class="work-head"><span>Plate 10</span><span class="tag priv">● Private</span></div>
           <div class="work-body single">
             <div>
               <h3>Payment Processing System</h3>
@@ -911,8 +995,8 @@
             </div>
           </div>
         </article>
-        <article class="plate work-mini rv">
-          <div class="work-head"><span>Plate 06</span><span class="tag">● Open</span></div>
+        <article class="plate work-mini rv d1">
+          <div class="work-head"><span>Plate 11</span><span class="tag">● Open</span></div>
           <div class="work-body single">
             <div>
               <h3>Serverless Data Processing</h3>
@@ -923,8 +1007,8 @@
             </div>
           </div>
         </article>
-        <article class="plate work-mini rv d1">
-          <div class="work-head"><span>Plate 07</span><span class="tag">● Open</span></div>
+        <article class="plate work-mini rv d2">
+          <div class="work-head"><span>Plate 12</span><span class="tag">● Open</span></div>
           <div class="work-body single">
             <div>
               <h3>FoReal — A CodeCraft App</h3>
@@ -1013,7 +1097,7 @@
             </div>
             <div class="term-row">
               <span class="p" aria-hidden="true">$</span><span class="cmd">open resume.pdf</span>
-              <a href="https://drive.google.com/file/d/1eD6OPPvxZGXQCYsXwkBRscjQuMZvtP34/view?usp=sharing" target="_blank" rel="noopener">view resume ↗</a>
+              <a href="https://drive.google.com/file/d/1tztJdAu3mSX6Rv8g1EtKkgAmfp9Ko4KJ/view?usp=sharing" target="_blank" rel="noopener">view resume ↗</a>
             </div>
           </div>
         </div>
