@@ -15,7 +15,7 @@
 \usepackage{enumitem}           % Tight list spacing
 \usepackage{fontawesome}        % Phone / envelope icons
 \usepackage{microtype}          % Better justification, fewer ugly line breaks
-\usepackage[left=0.35in,top=0.25in,right=0.35in,bottom=0.25in]{geometry}
+\usepackage[left=0.5in,top=0.42in,right=0.5in,bottom=0.42in]{geometry}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -26,15 +26,19 @@
 
 \pagestyle{empty} % Suppress page numbers
 
+\linespread{1.05}                      % A touch more leading between lines
+\setlength{\parskip}{5pt plus 1pt}      % A little air between paragraphs
+\renewcommand{\arraystretch}{1.25}      % Looser rows in the skills table
+
 %----------------------------------------------------------------------------------------
 %	SPACING
 %----------------------------------------------------------------------------------------
 
 \def\namesize{\LARGE}            % Size of the name at the top
-\def\addressskip{\smallskip}     % Space between the two address lines
-\def\sectionlineskip{\medskip}   % Space above each section's rule
-\def\nameskip{\medskip}          % Space after the name
-\def\sectionskip{\medskip}       % Space after a section heading
+\def\addressskip{\vspace{5pt}}     % Space between the two address lines
+\def\sectionlineskip{\vspace{7pt}} % Space above each section's rule
+\def\nameskip{\vspace{10pt}}       % Space after the name
+\def\sectionskip{\vspace{13pt}}    % Space after a section heading
 
 %----------------------------------------------------------------------------------------
 %	NAME AND ADDRESS
@@ -112,7 +116,7 @@
   {\em #3} \hfill {\em #4}
   }\smallskip
   \begin{list}{$\cdot$}{\leftmargin=0em}
-   \itemsep -0.5em \vspace{-0.5em}
+   \itemsep -0.5em \vspace{-0.7em}
   }{
   \end{list}
   \vspace{0.5em}
@@ -135,8 +139,7 @@
 %	SUMMARY
 %----------------------------------------------------------------------------------------
 
-\begin{rSection}{SUMMARY}
-Full-stack and cloud engineer with 2+ years of experience shipping production systems alone, end to end -- from database schema to deployed infrastructure. Sole engineer behind three live platforms for a UK law firm -- a legal case-management CRM spanning 380+ endpoints and 127 migrations, a sales CRM and a client portal -- running on a fleet of 24 self-managed Node.js services, with LLM workers that read lender documents, draft complaint letters and triage inbound mail at 96\% classification accuracy. Also the author of AgentLens, a published npm tool that intercepts AI coding-agent tool calls and flags destructive ones before they execute.
+\begin{rSection}{SUMMARY}AI and Cloud Engineer specializing in AWS infrastructure and production LLM systems. Skilled in designing scalable cloud architectures, automating deployments, and building multi-provider AI pipelines for document processing and classification. Sole engineer behind three live SaaS platforms serving real users, with hands-on ownership of infrastructure, security, and system architecture from end to end. Strong track record of improving system accuracy and reliability through rigorous evaluation and iteration, including a classification pipeline improved from 43\% to 96\% accuracy. AWS Certified, with production experience spanning compute, storage, managed databases and serverless services.
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
@@ -145,12 +148,12 @@ Full-stack and cloud engineer with 2+ years of experience shipping production sy
 
 \begin{rSection}{SKILLS}
 \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} >{\raggedright\arraybackslash}p{0.68\textwidth} }
-Languages \& Frameworks & TypeScript, JavaScript, Python, React, Next.js, Node.js, Express, Vite, Flask \\
-AI \& LLM Engineering & Gemini 2.5 Pro, Claude, GPT-4o, self-hosted models via Ollama; multi-provider fallback chains, versioned prompt rulesets, structured document extraction, evaluation harnesses \& golden sets, Tesseract OCR, MCP / agent hooks \\
-Cloud \& Infrastructure & AWS (EC2, RDS, S3, Lambda, API Gateway, DynamoDB), Docker, PM2, Nginx, Cloudflare, on-premise migration, Git \\
+AI \& LLM Engineering & AWS Bedrock (vision-language extraction), Gemini 2.5 Pro, Claude, GPT-4o, self-hosted models via Ollama; multi-provider fallback chains, evaluation harnesses \& golden sets, Tesseract OCR, MCP / agent hooks for Claude Code \\
+Cloud \& Infrastructure & AWS (Bedrock, EC2, RDS, S3, Lambda, API Gateway, DynamoDB), Docker, PM2, Nginx, Cloudflare, on-premise migration, Git \\
+Languages \& Frameworks & Python, TypeScript, JavaScript, Node.js, FastAPI, Express, React, Next.js \\
 Databases \& Caching & PostgreSQL, MySQL, Supabase, Redis \\
-Integrations & Microsoft Graph \& Azure MSAL, Twilio, SIP.js (VoIP), Stripe, Plaid, Clerk, Google APIs, IMAP/SMTP \\
-Frontend \& Tooling & Tailwind CSS, Socket.IO, Recharts, ReactFlow, TipTap, Framer Motion, Puppeteer, Playwright \\
+Integrations & Microsoft Graph, Twilio, SIP.js (VoIP), Stripe, Clerk,  IMAP/SMTP \\
+Frontend \& Tooling & Tailwind CSS, Socket.IO, Framer Motion, Puppeteer, Playwright \\
 \end{tabular}
 \end{rSection}
 
@@ -162,28 +165,29 @@ Frontend \& Tooling & Tailwind CSS, Socket.IO, Recharts, ReactFlow, TipTap, Fram
 
 \textbf{Rowan Rose Solicitors} \hfill Jan 2026 -- Present\\
 Sole Full-Stack Developer \& Cloud Engineer \hfill \textit{Remote, UK}
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt]
-    \item Sole engineer for three production systems the firm runs on daily -- a legal case-management CRM, a sales CRM and a client portal -- owning database design, API, frontend, AI workers and infrastructure.
-    \item Operate a fleet of 24 PM2-managed Node.js services against PostgreSQL; the legal CRM alone spans 127 schema migrations, roughly 380 REST endpoints and 247 React components.
-    \item Introduced LLM automation across the claims lifecycle -- document review, lender-letter classification, complaint drafting and inbound email triage -- removing manual review from the highest-volume steps.
-    \item Built a labelled golden-set evaluation harness over 74,966 classified emails reporting per-label accuracy, confusion pairs and a regression gate; classification accuracy on the same set moved from 43\% to 96\% after the rebuild.
-    \item Designed a 74-permission access matrix across 13 modules with five role presets and own/all data scoping, plus audit logging and audited impersonation on sensitive records.
-    \item Planned and executed the production cutover from AWS to on-premise infrastructure -- nightly code, database and S3 sync, staged environment configs, Cloudflare DNS switch and a documented rollback path.
+\begin{itemize}[itemsep=3.5pt, topsep=4pt, parsep=0pt, partopsep=0pt]
+    \item Sole engineer for three production platforms the firm runs on daily, owning the AI workers, cloud infrastructure and architecture across a fleet of 24 services.
+    \item Introduced LLM automation across the claims lifecycle, removing manual review from the highest-volume steps.
+    \item Built a golden-set evaluation harness over 74,966 classified emails, raising classification accuracy from 43\% to 96\%.
+    \item Planned and executed the production cutover from AWS to on-premise infrastructure, with staged environment configs, DNS switch and a documented rollback path.
 \end{itemize}
+\vspace{7pt}
 
 \textbf{Electrolab Pvt Ltd} \hfill Jul 2024 -- Apr 2025\\
 Business Analyst \hfill \textit{Ghansoli, Navi Mumbai}
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt]
+\begin{itemize}[itemsep=3.5pt, topsep=4pt, parsep=0pt, partopsep=0pt]
     \item Automated recurring reporting pipelines in Python, cutting manual reporting time by 40\%.
-    \item Delivered full-stack internal tools used by several departments across the business.
-    \item Built interactive KPI dashboards in Plotly that the operations team used for day-to-day decisions.
+    \item Built KPI dashboards in Plotly used by the operations team for day-to-day decisions.
+    \item Delivered full-stack internal tools adopted by several departments across the business.
+    \item Worked with department stakeholders to turn reporting requirements into automated workflows, replacing manual spreadsheet processes.
 \end{itemize}
+\vspace{7pt}
 
 \textbf{CloudWhiz Freelance} \hfill Feb 2023 -- Jun 2024\\
 Freelance Backend Developer \& Cloud Engineer \hfill \textit{Remote, Netherlands}
-\begin{itemize}[itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt]
+\begin{itemize}[itemsep=3.5pt, topsep=4pt, parsep=0pt, partopsep=0pt]
     \item Delivered 10+ backend and cloud projects for international clients, spanning payment processing, API integrations and AWS infrastructure.
-    \item Scoped requirements directly with clients, then built, deployed and handed over each project independently.
+    \item Scoped, built and deployed each project independently, working directly with clients.
 \end{itemize}
 
 \end{rSection}
@@ -193,26 +197,26 @@ Freelance Backend Developer \& Cloud Engineer \hfill \textit{Remote, Netherlands
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{PROJECTS}
-\begin{itemize}[itemsep=4pt, topsep=0pt, parsep=0pt, partopsep=0pt]
+\begin{itemize}[itemsep=7pt, topsep=4pt, parsep=0pt, partopsep=0pt]
     \item \textbf{AgentLens -- AI Agent Observability \& Safety Platform} \hfill \href{https://agent-lens-gamma.vercel.app/}{Live}\\
-    SaaS that intercepts every tool call an AI coding agent makes. A published npm CLI auto-detects installed agents -- Claude Code, Cursor, Cline, Antigravity -- and installs hooks that buffer and queue calls to the ingest API. Each call is rewritten into one plain-English line for non-technical readers and classified \textit{safe} / \textit{risky} / \textit{destructive} by a three-provider LLM chain (Gemini 2.0 Flash to GPT-4o-mini to Claude Sonnet) with 8-second timeouts and automatic failover; destructive calls escalate the session's risk level and trigger email alerts. 38 typed server actions across 9 modules, 9 REST routes and 17 migrations, with team RBAC and invites, Redis rate limiting, plan gating, session diffing and CSV/PDF export.\\
-    \textit{Next.js 16, React 19, TypeScript, Supabase, Clerk, Upstash Redis, Resend.}
-
-    \item \textbf{Legal Case-Management CRM -- Rowan Rose Solicitors}\\
-    Runs the full irresponsible-lending claim lifecycle: intake, letter of authority, data subject access request, complaint, final response and ombudsman escalation. AI workers read lender DSAR packs and Final Response Letters with Gemini 2.5 Pro and Tesseract OCR, classify every loan into one of five outcome categories against a versioned deterministic ruleset, and compile complaint letters behind a hard client-identity verification gate. Inbound mail across four Outlook mailboxes is classified by a self-hosted model, actioned by channel workers and filed automatically. Includes a visual automation studio, document generation and e-signature, payment reconciliation and self-hosted team chat.\\
-    \textit{Node.js, Express, PostgreSQL, React, AWS S3, Microsoft Graph, Puppeteer, docxtemplater.}
-
-    \item \textbf{Sales CRM with VoIP \& Lead Distribution}\\
-    Lead pipeline where agents dial from the browser over SIP.js with RNNoise WASM noise suppression, supervisor call listening, Twilio SMS and a Socket.IO live floor monitor. A distribution engine maintains each agent's lead pot -- a daily sweep plus continuous top-up, priority and age ordering, protected statuses so closed work is never reclaimed, and a dry-run mode that plans without writing. 108 endpoints and 65 React components.\\
-    \textit{Node.js, PostgreSQL, React, Twilio, SIP.js, Socket.IO.}
+    A SaaS platform that intercepts the tool calls made by AI coding agents and classifies each one as safe, risky or destructive using a three-provider LLM chain with automatic failover. Distributed as a published npm CLI that detects and hooks into Claude Code, Cursor and Cline, with team access control, session auditing and alerting on destructive actions.\\
+    \textit{Next.js, TypeScript, Supabase, Clerk, Redis.}
 
     \item \textbf{DocIntel -- Multi-Tenant Document Intelligence SaaS}\\
-    Upload an invoice, consignment note or ID and get back structured, schema-mapped data. A Celery pipeline classifies the document, renders PDF pages at 300 DPI and sends each page to a vision-language model on AWS Bedrock (Qwen3-VL 235B), which returns the mapped fields, unrecognised extras and a normalised bounding box for every value, with a Redis semaphore throttling concurrent model calls. Extracted keys resolve against the tenant schema by exact match, then alias, then 88\% similarity, with anything else parked as a candidate field for review. Human corrections made at verification are stored as weighted examples and fed back into later prompts, improving extraction accuracy per tenant over time. 73 endpoints, five-level role hierarchy, tenant-isolated queries, confidence-threshold auto-approve and Excel/CSV export.\\
-    \textit{FastAPI, Celery, Redis, PostgreSQL, async SQLAlchemy, React, AWS Bedrock, Docker.}
+    A document processing platform that extracts structured data from invoices, consignment notes and identity documents using a vision-language model on AWS Bedrock. Extracted fields are mapped to each tenant's schema, and human corrections are fed back as weighted examples so accuracy improves per tenant over time.\\
+    \textit{FastAPI, Celery, Redis, PostgreSQL, AWS Bedrock, Docker.}
+
+    \item \textbf{Legal Case-Management CRM -- Rowan Rose Solicitors}\\
+    A production platform running the full irresponsible-lending claim lifecycle, from client intake through to ombudsman escalation. AI workers read lender documents, classify loan outcomes against a versioned ruleset and draft complaint letters, while inbound mail across four mailboxes is triaged automatically by a self-hosted model.\\
+    \textit{Node.js, PostgreSQL, React, AWS S3, Microsoft Graph.}
 
     \item \textbf{Cargoverse -- Device Tracking Platform} \hfill \href{https://tracking.cargover.se/}{Live}\\
-    Tracking portal for a logistics operator. JWT held in signed httpOnly cookies with a per-request database check, so disabling an account revokes live sessions instantly instead of waiting for token expiry; bcrypt at cost 12, single-use SHA-256 reset tokens and Cloudflare Turnstile on every public form. Device identities and telemetry packets are cached locally so dashboards and analytics render without consuming upstream tracking-API quota. Admin console for registration approval, device assignment and user management across 37 endpoints.\\
-    \textit{Node.js, Express, PostgreSQL on RDS, React, Vite, AWS EC2, nginx, PM2.}
+    A device tracking portal for a logistics operator, deployed on AWS EC2 with PostgreSQL on RDS. Sessions are validated against the database on every request so access can be revoked instantly, and telemetry is cached locally to avoid consuming upstream API quota.\\
+    \textit{Node.js, PostgreSQL on RDS, React, AWS EC2, Nginx, PM2.}
+
+    \item \textbf{Sales CRM with VoIP \& Lead Distribution}\\
+    A lead pipeline platform where agents dial directly from the browser, with supervisor call monitoring and a live floor dashboard. A distribution engine allocates leads continuously by priority and age, with protected statuses and a dry-run mode that plans allocations without writing them.\\
+    \textit{Node.js, PostgreSQL, React, Twilio, SIP.js, Socket.IO.}
 \end{itemize}
 \end{rSection}
 
@@ -221,8 +225,8 @@ Freelance Backend Developer \& Cloud Engineer \hfill \textit{Remote, Netherlands
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{EDUCATION}
-\textbf{M.Tech in Computer Science}, Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (M.P.) \hfill 2025 -- 2027\\
-\textbf{B.Tech in Computer Science}, Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (M.P.) \hfill 2022 -- 2025\\
+\textbf{M.Tech in Computer Science}, Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (M.P.) \hfill 2025 -- 2027\\[4pt]
+\textbf{B.Tech in Computer Science}, Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (M.P.) \hfill 2022 -- 2025\\[4pt]
 \textbf{Diploma in Electronics Engineering}, Jamia Millia Islamia, New Delhi \hfill 2019 -- 2022
 \end{rSection}
 
@@ -231,8 +235,8 @@ Freelance Backend Developer \& Cloud Engineer \hfill \textit{Remote, Netherlands
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{CERTIFICATIONS}
-\textbf{AWS Certified Cloud Practitioner}, Amazon Web Services \hfill Jun 2024\\
-\textbf{AWS Knowledge: Amazon EKS}, Amazon Web Services \hfill Jul 2024\\
+\textbf{AWS Certified Cloud Practitioner}, Amazon Web Services \hfill Jun 2024\\[4pt]
+\textbf{AWS Knowledge: Amazon EKS}, Amazon Web Services \hfill Jul 2024\\[4pt]
 \textbf{Docker Training Course for the Absolute Beginner}, KodeKloud \hfill May 2024
 \end{rSection}
 
