@@ -139,7 +139,7 @@
 %	SUMMARY
 %----------------------------------------------------------------------------------------
 
-\begin{rSection}{SUMMARY}AI and Cloud Engineer specializing in AWS infrastructure and production LLM systems. Skilled in designing scalable cloud architectures, automating deployments, and building multi-provider AI pipelines for document processing and classification. Sole engineer behind three live SaaS platforms serving real users, with hands-on ownership of infrastructure, security, and system architecture from end to end. Strong track record of improving system accuracy and reliability through rigorous evaluation and iteration, including a classification pipeline improved from 43\% to 96\% accuracy. AWS Certified, with production experience spanning compute, storage, managed databases and serverless services.
+\begin{rSection}{SUMMARY}AI and Cloud Engineer specializing in AWS infrastructure and production LLM systems. Skilled in designing scalable cloud architectures, automating deployments, and building multi-provider AI pipelines for document processing and classification. Experienced in agentic AI, building the guardrails that intercept, classify and gate the actions autonomous agents take before they execute. Sole engineer behind three live SaaS platforms serving real users, with hands-on ownership of infrastructure, security, and system architecture from end to end. Strong track record of improving system accuracy and reliability through rigorous evaluation and iteration, including a classification pipeline improved from 43\% to 96\% accuracy. AWS Certified, with production experience spanning compute, storage, managed databases and serverless services.
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
@@ -148,7 +148,8 @@
 
 \begin{rSection}{SKILLS}
 \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} >{\raggedright\arraybackslash}p{0.68\textwidth} }
-AI \& LLM Engineering & AWS Bedrock (vision-language extraction), Gemini 2.5 Pro, Claude, GPT-4o, self-hosted models via Ollama; multi-provider fallback chains, evaluation harnesses \& golden sets, Tesseract OCR, MCP / agent hooks for Claude Code \\
+AI \& LLM Engineering & AWS Bedrock, Claude (Fable, Opus, Sonnet), MCP \\
+Agentic AI & Hermes agents, Claude Code hooks, MCP servers; tool-call interception, risk classification and human-in-the-loop approval \\
 Cloud \& Infrastructure & AWS (Bedrock, EC2, RDS, S3, Lambda, API Gateway, DynamoDB), Docker, PM2, Nginx, Cloudflare, on-premise migration, Git \\
 Languages \& Frameworks & Python, TypeScript, JavaScript, Node.js, FastAPI, Express, React, Next.js \\
 Databases \& Caching & PostgreSQL, MySQL, Supabase, Redis \\
