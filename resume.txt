@@ -1,244 +1,173 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SAYED MOHAMMAD FIRDOUSI - RESUME
-%
-% Self-contained: styling + content in one file.
-% No resume.cls needed. Compile with: pdflatex resume.txt
-%
-% Styling originally by Trey Hunner / LaTeXTemplates.com
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10.5pt,letterpaper]{article}
 
-\documentclass[11pt,letterpaper]{article}
+% ---------------------------------------------------------------------------
+% ONE-PAGE ATS-FRIENDLY RESUME
+% - Single column, no tables, no icon fonts, no graphics
+% - Standard section headings, plain hyperlinks
+% - Compiles cleanly on Overleaf with pdflatex
+% ---------------------------------------------------------------------------
 
-\usepackage[parfill]{parskip}   % Remove paragraph indentation
-\usepackage{array}              % Boldface tabular columns
-\usepackage{ifthen}             % ifthenelse statements
-\usepackage{enumitem}           % Tight list spacing
-\usepackage{fontawesome}        % Phone / envelope icons
-\usepackage{microtype}          % Better justification, fewer ugly line breaks
-\usepackage[left=0.5in,top=0.42in,right=0.5in,bottom=0.42in]{geometry}
+\usepackage[margin=0.4in,top=0.32in,bottom=0.32in]{geometry}
+\usepackage[parfill]{parskip}
+\usepackage{enumitem}
 \usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{tikz}
+
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    filecolor=magenta,
     urlcolor=blue,
+    pdftitle={Sayed Mohammad Firdousi - Resume},
+    pdfauthor={Sayed Mohammad Firdousi}
 }
 
-\pagestyle{empty} % Suppress page numbers
+\pagestyle{empty}
+\linespread{0.94}
+\setlength{\parskip}{1pt}
 
-\linespread{1.05}                      % A touch more leading between lines
-\setlength{\parskip}{5pt plus 1pt}      % A little air between paragraphs
-\renewcommand{\arraystretch}{1.25}      % Looser rows in the skills table
+% Never break a word across lines: no "archi-tecture", no "infrastruc-ture".
+% \sloppy lets TeX loosen word spacing instead of overflowing the margin.
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=3em
+\sloppy
 
-%----------------------------------------------------------------------------------------
-%	SPACING
-%----------------------------------------------------------------------------------------
+% Plain, ATS-friendly section headings
+\titleformat{\section}{\normalsize\bfseries}{}{0em}{}[\vspace{0.3pt}\hrule]
+\titlespacing{\section}{0pt}{3.5pt}{2pt}
 
-\def\namesize{\LARGE}            % Size of the name at the top
-\def\addressskip{\vspace{5pt}}     % Space between the two address lines
-\def\sectionlineskip{\vspace{7pt}} % Space above each section's rule
-\def\nameskip{\vspace{10pt}}       % Space after the name
-\def\sectionskip{\vspace{13pt}}    % Space after a section heading
+\setlist[itemize]{leftmargin=1.1em, itemsep=0pt, topsep=1pt, parsep=0pt, partopsep=0pt}
 
-%----------------------------------------------------------------------------------------
-%	NAME AND ADDRESS
-%----------------------------------------------------------------------------------------
-
-\makeatletter
-
-\def\name#1{\def\@name{#1}}
-\def\@name{}
-\def\addressSep{$\diamond$}
-
-\let\@addressone\relax
-\let\@addresstwo\relax
-\let\@addressthree\relax
-
-% Up to three address lines can be specified
-\def\address#1{
-  \@ifundefined{@addresstwo}{
-    \def\@addresstwo{#1}
-  }{
-  \@ifundefined{@addressthree}{
-    \def\@addressthree{#1}
-  }{
-    \def\@addressone{#1}
-  }}
+% Black-and-white contact icons, drawn as vector paths rather than font glyphs so
+% they contribute nothing to the text an ATS extracts. Sized in ex, so they scale
+% with whatever font size surrounds them.
+\newcommand{\iconmail}{%
+    \tikz[baseline=0pt, x=1ex, y=1ex, line width=0.085ex, line join=round]{
+        \draw (0,0) rectangle (1.7,1.2);
+        \draw (0,1.2) -- (0.85,0.5) -- (1.7,1.2);
+    }%
+}
+\newcommand{\iconphone}{%
+    \tikz[baseline=0pt, x=1ex, y=1ex, line width=0.3ex, line cap=round, line join=round]{
+        \draw[rotate around={-30:(0.8,0.55)}]
+            (0.05,1.1) -- (0.2,0.45)
+            .. controls (0.6,0.0) and (1.0,0.0) .. (1.4,0.45) -- (1.55,1.1);
+    }%
 }
 
-\def\printaddress#1{
-  \begingroup
-    \def\\{\addressSep\ }
-    \centerline{#1}
-  \endgroup
-  \par
-  \addressskip
+% Skills row: bold category in a fixed-width column, detail wraps aligned beside it
+\newlength{\skillcol}
+\settowidth{\skillcol}{\textbf{Languages \& Frameworks:}}
+\addtolength{\skillcol}{1em}
+\newcommand{\skill}[2]{%
+    \noindent\makebox[\skillcol][l]{\textbf{#1:}}%
+    \begin{minipage}[t]{\dimexpr\textwidth-\skillcol\relax}\raggedright #2\end{minipage}%
+    \par\vspace{1.5pt}%
 }
-
-\def\printname{
-  \begingroup
-    \hfil{\MakeUppercase{\namesize\bf \@name}}\hfil
-    \nameskip\break
-  \endgroup
-}
-
-% Prints the name followed by any address lines that were set
-\def\printheader{
-  \printname
-  \@ifundefined{@addressone}{}{\printaddress{\@addressone}}
-  \@ifundefined{@addresstwo}{}{\printaddress{\@addresstwo}}
-  \@ifundefined{@addressthree}{}{\printaddress{\@addressthree}}
-}
-
-\makeatother
-
-%----------------------------------------------------------------------------------------
-%	SECTION FORMATTING
-%----------------------------------------------------------------------------------------
-
-\newenvironment{rSection}[1]{ % 1 argument - section name
-  \sectionskip
-  \MakeUppercase{{\bf #1}}
-  \sectionlineskip
-  \hrule
-  \begin{list}{}{
-    \setlength{\leftmargin}{0em}
-  }
-  \item[]
-}{
-  \end{list}
-}
-
-\newenvironment{rSubsection}[4]{ % company, dates, job title, location
- {\bf #1} \hfill {#2}
- \ifthenelse{\equal{#3}{}}{}{
-  \\
-  {\em #3} \hfill {\em #4}
-  }\smallskip
-  \begin{list}{$\cdot$}{\leftmargin=0em}
-   \itemsep -0.5em \vspace{-0.7em}
-  }{
-  \end{list}
-  \vspace{0.5em}
-}
-
-%----------------------------------------------------------------------------------------
-%	DETAILS
-%----------------------------------------------------------------------------------------
-
-\name{SAYED MOHAMMAD FIRDOUSI}
-
-\address{\href{https://github.com/Momoeka}{Github} \\ \href{https://www.linkedin.com/in/sayed-mohammad-firdousi-7895951a7/}{LinkedIn} \\ \href{https://momoeka.github.io/MyPortfolio/}{Portfolio} \\ \href{mailto:mohammadsayed722@gmail.com}{\faEnvelope\ mohammadsayed722@gmail.com}}
-\address{ \faPhone\  +91 8929023900 \hfill Mumbai, Maharashtra }
 
 \begin{document}
 
-\printheader
+% ---------------------------------------------------------------------------
+% HEADER
+% ---------------------------------------------------------------------------
+{\centering {\Large \bfseries Sayed Mohammad Firdousi}\par}
+\vspace{3pt}
+\noindent\makebox[\textwidth]{\small
+    Mumbai, Maharashtra, India \hfill \textbar \hfill
+    \mbox{\iconphone\hspace{0.4em}+91 8929023900} \hfill \textbar \hfill
+    \mbox{\iconmail\hspace{0.4em}\href{mailto:mohammadsayed722@gmail.com}{mohammadsayed722@gmail.com}} \hfill \textbar \hfill
+    \href{https://github.com/Momoeka}{GitHub} \hfill \textbar \hfill
+    \href{https://www.linkedin.com/in/sayed-mohammad-firdousi-7895951a7/}{LinkedIn} \hfill \textbar \hfill
+    \href{https://momoeka.github.io/MyPortfolio/}{Portfolio}}
 
-%----------------------------------------------------------------------------------------
-%	SUMMARY
-%----------------------------------------------------------------------------------------
+% ---------------------------------------------------------------------------
+% SUMMARY
+% ---------------------------------------------------------------------------
+\section*{Summary}
+AI and Cloud Engineer specializing in AWS infrastructure and production LLM systems. Skilled in designing scalable cloud architectures, automating deployments, and building multi-provider AI pipelines for document processing and classification. Experienced in agentic AI, building the guardrails that intercept, classify, and gate the actions autonomous agents take before they execute. Sole engineer behind three live SaaS platforms serving real users, with hands-on ownership of infrastructure, security, and system architecture from end to end. Strong track record of improving system accuracy and reliability through rigorous evaluation and iteration, including a classification pipeline improved from 43\% to 96\% accuracy. AWS Certified, with production experience spanning compute, storage, managed databases, and serverless services.
 
-\begin{rSection}{SUMMARY}AI and Cloud Engineer specializing in AWS infrastructure and production LLM systems. Skilled in designing scalable cloud architectures, automating deployments, and building multi-provider AI pipelines for document processing and classification. Experienced in agentic AI, building the guardrails that intercept, classify and gate the actions autonomous agents take before they execute. Sole engineer behind three live SaaS platforms serving real users, with hands-on ownership of infrastructure, security, and system architecture from end to end. Strong track record of improving system accuracy and reliability through rigorous evaluation and iteration, including a classification pipeline improved from 43\% to 96\% accuracy. AWS Certified, with production experience spanning compute, storage, managed databases and serverless services.
-\end{rSection}
+% ---------------------------------------------------------------------------
+% SKILLS
+% ---------------------------------------------------------------------------
+\section*{Skills}
+\skill{AI \& LLM Engineering}{AWS Bedrock, Claude (Fable, Opus, Sonnet), MCP}
+\skill{Agentic AI}{Hermes agents, Claude Code hooks, MCP servers}
+\skill{Cloud \& Infrastructure}{AWS (Bedrock, EC2, RDS, S3, Lambda, API Gateway, DynamoDB), Docker, Git, Nginx}
+\skill{Languages \& Frameworks}{Python, JavaScript, Node.js, React, Next.js}
+\skill{Databases \& Caching}{PostgreSQL, MySQL, Supabase, Redis}
+\skill{Integrations}{Microsoft Graph, Twilio, SIP.js (VoIP), Stripe, Clerk, IMAP/SMTP}
+\skill{Frontend \& Tooling}{Tailwind CSS, Socket.IO, Framer Motion, Puppeteer, Playwright}
 
-%----------------------------------------------------------------------------------------
-%	SKILLS
-%----------------------------------------------------------------------------------------
+% ---------------------------------------------------------------------------
+% EXPERIENCE
+% ---------------------------------------------------------------------------
+\section*{Experience}
 
-\begin{rSection}{SKILLS}
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} >{\raggedright\arraybackslash}p{0.68\textwidth} }
-AI \& LLM Engineering & AWS Bedrock, Claude (Fable, Opus, Sonnet), MCP \\
-Agentic AI & Hermes agents, Claude Code hooks, MCP servers; tool-call interception, risk classification and human-in-the-loop approval \\
-Cloud \& Infrastructure & AWS (Bedrock, EC2, RDS, S3, Lambda, API Gateway, DynamoDB), Docker, PM2, Nginx, Cloudflare, on-premise migration, Git \\
-Languages \& Frameworks & Python, TypeScript, JavaScript, Node.js, FastAPI, Express, React, Next.js \\
-Databases \& Caching & PostgreSQL, MySQL, Supabase, Redis \\
-Integrations & Microsoft Graph, Twilio, SIP.js (VoIP), Stripe, Clerk,  IMAP/SMTP \\
-Frontend \& Tooling & Tailwind CSS, Socket.IO, Framer Motion, Puppeteer, Playwright \\
-\end{tabular}
-\end{rSection}
-
-%----------------------------------------------------------------------------------------
-%	EXPERIENCE
-%----------------------------------------------------------------------------------------
-
-\begin{rSection}{EXPERIENCE}
-
-\textbf{Rowan Rose Solicitors} \hfill Jan 2026 -- Present\\
-Sole Full-Stack Developer \& Cloud Engineer \hfill \textit{Remote, UK}
-\begin{itemize}[itemsep=3.5pt, topsep=4pt, parsep=0pt, partopsep=0pt]
-    \item Sole engineer for three production platforms the firm runs on daily, owning the AI workers, cloud infrastructure and architecture across a fleet of 24 services.
+\textbf{Rowan Rose Solicitors} -- Sole Full-Stack Developer \& Cloud Engineer \hfill Jan 2026 -- Present\\
+\textit{Remote, United Kingdom}
+\begin{itemize}
+    \item Sole engineer for three production platforms the firm runs on daily, owning the AI workers, cloud infrastructure, and architecture across a fleet of 24 services.
     \item Introduced LLM automation across the claims lifecycle, removing manual review from the highest-volume steps.
     \item Built a golden-set evaluation harness over 74,966 classified emails, raising classification accuracy from 43\% to 96\%.
-    \item Planned and executed the production cutover from AWS to on-premise infrastructure, with staged environment configs, DNS switch and a documented rollback path.
+    \item Planned and executed the production cutover from AWS to on-premise infrastructure, with staged environment configs, DNS switch, and a documented rollback path.
 \end{itemize}
-\vspace{7pt}
 
-\textbf{Electrolab Pvt Ltd} \hfill Jul 2024 -- Apr 2025\\
-Business Analyst \hfill \textit{Ghansoli, Navi Mumbai}
-\begin{itemize}[itemsep=3.5pt, topsep=4pt, parsep=0pt, partopsep=0pt]
+\textbf{Electrolab Pvt Ltd} -- Business Analyst \hfill Jul 2024 -- Apr 2025\\
+\textit{Ghansoli, Navi Mumbai}
+\begin{itemize}
     \item Automated recurring reporting pipelines in Python, cutting manual reporting time by 40\%.
     \item Built KPI dashboards in Plotly used by the operations team for day-to-day decisions.
     \item Delivered full-stack internal tools adopted by several departments across the business.
-    \item Worked with department stakeholders to turn reporting requirements into automated workflows, replacing manual spreadsheet processes.
-\end{itemize}
-\vspace{7pt}
-
-\textbf{CloudWhiz Freelance} \hfill Feb 2023 -- Jun 2024\\
-Freelance Backend Developer \& Cloud Engineer \hfill \textit{Remote, Netherlands}
-\begin{itemize}[itemsep=3.5pt, topsep=4pt, parsep=0pt, partopsep=0pt]
-    \item Delivered 10+ backend and cloud projects for international clients, spanning payment processing, API integrations and AWS infrastructure.
-    \item Scoped, built and deployed each project independently, working directly with clients.
+    \item Worked with department stakeholders to turn reporting requirements into automated workflows, replacing manual processes.
 \end{itemize}
 
-\end{rSection}
-
-%----------------------------------------------------------------------------------------
-%	PROJECTS
-%----------------------------------------------------------------------------------------
-
-\begin{rSection}{PROJECTS}
-\begin{itemize}[itemsep=7pt, topsep=4pt, parsep=0pt, partopsep=0pt]
-    \item \textbf{AgentLens -- AI Agent Observability \& Safety Platform} \hfill \href{https://agent-lens-gamma.vercel.app/}{Live}\\
-    A SaaS platform that intercepts the tool calls made by AI coding agents and classifies each one as safe, risky or destructive using a three-provider LLM chain with automatic failover. Distributed as a published npm CLI that detects and hooks into Claude Code, Cursor and Cline, with team access control, session auditing and alerting on destructive actions.\\
-    \textit{Next.js, TypeScript, Supabase, Clerk, Redis.}
-
-    \item \textbf{DocIntel -- Multi-Tenant Document Intelligence SaaS}\\
-    A document processing platform that extracts structured data from invoices, consignment notes and identity documents using a vision-language model on AWS Bedrock. Extracted fields are mapped to each tenant's schema, and human corrections are fed back as weighted examples so accuracy improves per tenant over time.\\
-    \textit{FastAPI, Celery, Redis, PostgreSQL, AWS Bedrock, Docker.}
-
-    \item \textbf{Legal Case-Management CRM -- Rowan Rose Solicitors}\\
-    A production platform running the full irresponsible-lending claim lifecycle, from client intake through to ombudsman escalation. AI workers read lender documents, classify loan outcomes against a versioned ruleset and draft complaint letters, while inbound mail across four mailboxes is triaged automatically by a self-hosted model.\\
-    \textit{Node.js, PostgreSQL, React, AWS S3, Microsoft Graph.}
-
-    \item \textbf{Cargoverse -- Device Tracking Platform} \hfill \href{https://tracking.cargover.se/}{Live}\\
-    A device tracking portal for a logistics operator, deployed on AWS EC2 with PostgreSQL on RDS. Sessions are validated against the database on every request so access can be revoked instantly, and telemetry is cached locally to avoid consuming upstream API quota.\\
-    \textit{Node.js, PostgreSQL on RDS, React, AWS EC2, Nginx, PM2.}
-
-    \item \textbf{Sales CRM with VoIP \& Lead Distribution}\\
-    A lead pipeline platform where agents dial directly from the browser, with supervisor call monitoring and a live floor dashboard. A distribution engine allocates leads continuously by priority and age, with protected statuses and a dry-run mode that plans allocations without writing them.\\
-    \textit{Node.js, PostgreSQL, React, Twilio, SIP.js, Socket.IO.}
+\textbf{CloudWhiz Freelance} -- Freelance Backend Developer \& Cloud Engineer \hfill Feb 2023 -- Jun 2024\\
+\textit{Remote, Netherlands}
+\begin{itemize}
+    \item Delivered backend \& cloud projects for international clients with API integrations, and AWS infrastructure.
+    \item Scoped, built, and deployed each project independently, working directly with clients.
 \end{itemize}
-\end{rSection}
 
-%----------------------------------------------------------------------------------------
-%	EDUCATION
-%----------------------------------------------------------------------------------------
+% ---------------------------------------------------------------------------
+% PROJECTS
+% ---------------------------------------------------------------------------
+\section*{Projects}
 
-\begin{rSection}{EDUCATION}
-\textbf{M.Tech in Computer Science}, Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (M.P.) \hfill 2025 -- 2027\\[4pt]
-\textbf{B.Tech in Computer Science}, Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (M.P.) \hfill 2022 -- 2025\\[4pt]
+\textbf{Foreman -- Multi-Agent Orchestration System (LangGraph, MCP)} \hfill \href{https://github.com/Momoeka/Agent-Orchestration-System}{GitHub}
+\begin{itemize}
+     \item Supervisor plans, specialist agents act through a permission gate, a separate reviewer model checks every result; irreversible actions pause for human approval. Built on LangGraph and Celery with OpenTelemetry tracing of every model and tool call.
+    \item Three-tier memory checkpoint tasks with replay from any step \& a task eval harness with zero unapproved destructive actions.
+\end{itemize}
+
+\textbf{AgentLens -- AI Agent Observability \& Safety Platform} \hfill \href{https://agent-lens-gamma.vercel.app/}{Live Demo}
+\begin{itemize}
+    \item A SaaS platform that intercepts the tool calls made by AI coding agents and classifies each one as safe, risky, or destructive using a three-provider LLM chain with automatic failover.
+    \item Distributed as a published npm CLI that detects and hooks into Claude Code, Cursor, and Cline, with team access control, session auditing, and alerting on destructive actions.
+\end{itemize}
+
+\textbf{DocIntel -- Multi-Tenant Document Intelligence}
+\begin{itemize}
+    \item A document processing platform that extracts structured data from invoices, consignment notes, and identity documents using a vision-language model on AWS Bedrock.
+    \item Extracted fields are mapped to each tenant's schema, and human corrections are fed back as weighted examples so accuracy improves per tenant over time.
+\end{itemize}
+
+% ---------------------------------------------------------------------------
+% EDUCATION
+% ---------------------------------------------------------------------------
+\section*{Education}
+\textbf{M.Tech in Computer Science}, Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (M.P.) \hfill 2025 -- 2027
+
+\textbf{B.Tech in Computer Science}, Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (M.P.) \hfill 2022 -- 2025
+
 \textbf{Diploma in Electronics Engineering}, Jamia Millia Islamia, New Delhi \hfill 2019 -- 2022
-\end{rSection}
 
-%----------------------------------------------------------------------------------------
-%	CERTIFICATIONS
-%----------------------------------------------------------------------------------------
+% ---------------------------------------------------------------------------
+% CERTIFICATIONS
+% ---------------------------------------------------------------------------
+\section*{Certifications}
+\textbf{AWS Certified Cloud Practitioner}, AWS -- \href{https://drive.google.com/file/d/1izTMEbOeSVCiezVSrklLqTbFVYhVC0no/view?usp=sharing}{Verify} \hfill Jun 2024
 
-\begin{rSection}{CERTIFICATIONS}
-\textbf{AWS Certified Cloud Practitioner}, Amazon Web Services \hfill Jun 2024\\[4pt]
-\textbf{AWS Knowledge: Amazon EKS}, Amazon Web Services \hfill Jul 2024\\[4pt]
-\textbf{Docker Training Course for the Absolute Beginner}, KodeKloud \hfill May 2024
-\end{rSection}
+\textbf{AWS Knowledge: Amazon EKS}, AWS -- \href{https://www.credly.com/badges/25b9b975-723e-4f12-829e-002bae5bc214/public_url}{Verify} \hfill Jul 2024
 
 \end{document}
