@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sayed Mohammad Firdousi — AI &amp; Cloud Engineer</title>
-  <meta name="description" content="AI and cloud engineer in Mumbai. I build LLM systems and the AWS infrastructure under them — document intelligence on Bedrock, agent-safety tooling for Claude Code, and 24 services in production.">
+  <title>Sayed Mohammad Firdousi · AI &amp; Cloud Engineer</title>
+  <meta name="description" content="AI and cloud engineer in Mumbai. I build LLM systems and the AWS infrastructure under them: document intelligence on Bedrock, agent-safety tooling for Claude Code, and 24 services in production.">
   <link rel="canonical" href="https://momoeka.github.io/MyPortfolio/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Sayed Mohammad Firdousi — AI &amp; Cloud Engineer">
+  <meta property="og:title" content="Sayed Mohammad Firdousi · AI &amp; Cloud Engineer">
   <meta property="og:description" content="I build AI systems that stay up. LLM pipelines on AWS Bedrock, agent-safety tooling, and the cloud infrastructure beneath them.">
   <meta property="og:url" content="https://momoeka.github.io/MyPortfolio/">
   <meta property="og:image" content="https://momoeka.github.io/MyPortfolio/images/opt/og.jpg">
@@ -297,12 +297,9 @@
     .index-row {
       display: grid; grid-template-columns: 60px 1fr auto auto; gap: 18px; align-items: baseline;
       padding: 22px 0; border-top: 1px solid var(--line);
-      position: relative; transition: padding-left .45s var(--ease);
+      position: relative;
     }
     .index-row:last-child { border-bottom: 1px solid var(--line); }
-    a.index-row:hover { padding-left: 22px; }
-    .index-row::before { content: ""; position: absolute; left: 0; top: 50%; width: 8px; height: 8px; margin-top: -4px; background: var(--saffron); opacity: 0; transition: opacity .3s; }
-    a.index-row:hover::before { opacity: 1; }
     .index-row .n { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--faint); }
     .index-row .t { font-family: var(--serif); font-size: clamp(22px, 2.6vw, 34px); line-height: 1.1; transition: color .3s; }
     a.index-row:hover .t { color: var(--saffron); }
@@ -342,8 +339,7 @@
     .about-facts strong { color: var(--ivory); font-weight: 500; }
     .about-fig { position: sticky; top: 90px; }
     .about-fig .ph { overflow: hidden; }
-    .about-fig img { width: 100%; transition: transform 1.2s var(--ease-o); }
-    .about-fig .ph:hover img { transform: scale(1.03); }
+    .about-fig img { width: 100%; }
     .about-fig figcaption { display: flex; justify-content: space-between; padding-top: 14px; }
     @media (max-width: 880px) {
       .about-grid { grid-template-columns: 1fr; }
@@ -377,22 +373,20 @@
     .film figure { flex: 0 0 auto; scroll-snap-align: start; position: relative; }
     .film img {
       height: clamp(300px, 52vh, 520px); width: auto; max-width: none;
-      transition: transform .8s var(--ease-o);
     }
     .film figcaption {
-      position: absolute; left: 18px; bottom: 14px;
-      font-size: 10.5px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: rgba(255, 255, 255, .95);
-      text-shadow: 0 1px 10px rgba(0, 0, 0, .75);
+      padding: 12px 4px 0;
+      font-size: 10.5px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--mut);
     }
-    .film figcaption i { font-family: var(--serif); font-style: italic; text-transform: none; letter-spacing: 0; font-size: 14px; margin-right: 10px; color: #FFF; }
+    .film figcaption i { font-family: var(--serif); font-style: italic; text-transform: none; letter-spacing: 0; font-size: 14px; margin-right: 10px; color: var(--ivory); }
     .field-drag { margin: 26px var(--pad) 0; display: flex; justify-content: space-between; }
 
     /* ============ RECORD ============ */
     .record-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(24px, 3vw, 48px); }
     .rec-col h3 { font-size: 10.5px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--saffron); padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 16px; }
     .rec-col ul { list-style: none; }
-    .rec-col li { padding: 5px 0; font-size: 14px; color: var(--mut); transition: color .25s, padding-left .35s var(--ease); }
-    .rec-col li:hover { color: var(--ivory); padding-left: 8px; }
+    .rec-col li { padding: 5px 0; font-size: 14px; color: var(--mut); transition: color .25s; }
+    .rec-col li:hover { color: var(--ivory); }
     @media (max-width: 880px) { .record-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 520px) { .record-grid { grid-template-columns: 1fr; } }
     .creds { margin-top: clamp(60px, 9vh, 100px); }
@@ -404,17 +398,6 @@
     button.cred-row { width: 100%; text-align: left; }
     .cred-row:hover .v { color: var(--saffron); border-color: var(--saffron); }
     @media (max-width: 640px) { .cred-row { grid-template-columns: 1fr; gap: 4px; } .cred-row .v { justify-self: start; } }
-    .words { margin-top: clamp(70px, 10vh, 120px); position: relative; }
-    .qbox { position: relative; min-height: 240px; margin-top: 26px; }
-    .q { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .9s var(--ease-o); }
-    .q.show { opacity: 1; visibility: visible; }
-    .q p { font-family: var(--serif); font-size: clamp(21px, 2.8vw, 36px); line-height: 1.35; max-width: 32ch; }
-    .q p::before { content: "“ "; color: var(--saffron); }
-    .q cite { display: block; font-style: normal; margin-top: 22px; font-size: 13px; color: var(--mut); }
-    .q cite b { color: var(--ivory); font-weight: 500; }
-    .q-nav { display: flex; align-items: center; gap: 18px; margin-top: 30px; }
-    .q-nav button { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--mut); transition: color .3s; padding: 4px 6px; }
-    .q-nav button:hover { color: var(--saffron); }
 
     /* ============ CONTACT ============ */
     .contact { min-height: 92svh; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 0; }
@@ -470,7 +453,7 @@
     <a href="#career">Career</a>
     <a href="#contact">Contact</a>
   </nav>
-  <div class="chrome ch-bl cap" aria-hidden="true">Mumbai — <span id="clock">--:--</span> IST</div>
+  <div class="chrome ch-bl cap" aria-hidden="true">Mumbai · <span id="clock">--:--</span> IST</div>
   <div class="chrome ch-br" aria-hidden="true"><span class="cap" id="progPct">00</span><span class="bar"><i id="progBar"></i></span></div>
 
   <main id="main">
@@ -480,11 +463,11 @@
         <canvas id="dustBase" aria-hidden="true"></canvas>
         <canvas id="dust" aria-hidden="true"></canvas>
         <div class="hero-static" aria-hidden="true"><img src="images/opt/first.webp" alt="" width="408" height="612"></div>
-        <p class="hero-side hjs" aria-hidden="true">AI &amp; Cloud Engineer — Est. Mumbai</p>
+        <p class="hero-side hjs" aria-hidden="true">AI &amp; Cloud Engineer · Est. Mumbai</p>
         <p class="hero-avail hjs"><i></i>Open to opportunities</p>
         <h1 class="hero-name chars" id="heroName" aria-label="Mohammad">Mohammad</h1>
         <div class="hero-foot">
-          <p class="hero-role hjs-t">— <b>AI &amp; cloud engineer.</b> I ship LLM pipelines and the AWS infrastructure that runs them. Sole engineer behind <b>24 services in production</b>.</p>
+          <p class="hero-role hjs-t"><b>AI &amp; cloud engineer.</b> I ship LLM pipelines and the AWS infrastructure that runs them. Sole engineer behind <b>24 services in production</b>.</p>
           <div class="hero-links hjs-t">
             <a class="u-link" href="#works">Selected works</a>
             <a class="u-link" href="https://drive.google.com/file/d/1RNTLHskUPCs1zduobHiPc2FzByzPbNfA/view?usp=sharing" target="_blank" rel="noopener">Résumé ↗</a>
@@ -501,13 +484,13 @@
     <section class="mani" aria-label="Manifesto" id="mani">
       <div class="mani-pin">
         <div class="cut">
-          <div><span class="cap">01 — The work</span><p>I build <em class="sa">AI systems</em> that stay up.</p></div>
+          <div><span class="cap">01 · The work</span><p>I build <em class="sa">AI systems</em> that stay up.</p></div>
         </div>
         <div class="cut">
-          <div><span class="cap">02 — The scale</span><p>One engineer. <em class="sa">24 services</em> in production.</p><small>Rowan Rose Solicitors — legal &amp; sales platforms, UK</small></div>
+          <div><span class="cap">02 · The scale</span><p>One engineer. <em class="sa">24 services</em> in production.</p><small>Rowan Rose Solicitors · legal &amp; sales platforms, UK</small></div>
         </div>
         <div class="cut">
-          <div><span class="cap">03 — The proof</span><p>43% → <em class="sa">96%</em> accuracy. Measured, not hoped.</p><small>Golden-set evaluation over 74,966 classified emails</small></div>
+          <div><span class="cap">03 · The proof</span><p>43% → <em class="sa">96%</em> accuracy, measured.</p><small>Golden-set evaluation over 74,966 classified emails</small></div>
         </div>
         <div class="mani-idx" aria-hidden="true"><i></i><i></i><i></i></div>
       </div>
@@ -521,7 +504,7 @@
             <span class="panel-num" aria-hidden="true">01</span>
             <p class="panel-head cap"><span class="sa">● Open source</span><span>Multi-agent orchestration · LangGraph + MCP</span></p>
             <h3 class="panel-title">Fore<em>man.</em></h3>
-            <p class="panel-take">A supervisor plans, specialists act, a separate reviewer model checks every result — <b>irreversible actions wait for a human</b>.</p>
+            <p class="panel-take">A supervisor plans, specialists act, a separate reviewer model checks every result. <b>Irreversible actions wait for a human.</b></p>
             <div class="panel-specs">
               <div class="spec"><span class="cap">System</span><div>Specialist agents act through a <b>permission gate</b>; a reviewer model checks every result; OpenTelemetry traces every model and tool call</div></div>
               <div class="spec"><span class="cap">Proof</span><div>Three-tier memory · checkpointed tasks with replay from any step · <b>zero unapproved destructive actions</b> in the eval harness</div></div>
@@ -535,7 +518,7 @@
             <span class="panel-num" aria-hidden="true">02</span>
             <p class="panel-head cap"><span class="sa">● Live</span><span>Production SaaS · npm CLI</span></p>
             <h3 class="panel-title">Agent<em>Lens.</em></h3>
-            <p class="panel-take">Shows you what your AI coding agent <b>actually did</b> — every tool call in plain English, graded for risk.</p>
+            <p class="panel-take">Shows you what your AI coding agent <b>actually did</b>: every tool call in plain English, graded for risk.</p>
             <div class="panel-specs">
               <div class="spec"><span class="cap">System</span><div>Gemini → OpenAI → Claude failover chain grades every intercepted call <b>safe / risky / destructive</b></div></div>
               <div class="spec"><span class="cap">Scale</span><div><b>47 endpoints</b> · 3 LLM providers · published CLI with team access control &amp; session auditing</div></div>
@@ -550,13 +533,13 @@
             <span class="panel-num" aria-hidden="true">03</span>
             <p class="panel-head cap"><span class="sa">● In production</span><span>Multi-tenant SaaS · Private</span></p>
             <h3 class="panel-title">Doc<em>Intel.</em></h3>
-            <p class="panel-take">Photograph an invoice, get clean structured data back — <b>and it learns from every correction</b>.</p>
+            <p class="panel-take">Photograph an invoice, get clean structured data back, <b>and it learns from every correction</b>.</p>
             <div class="panel-specs">
               <div class="spec"><span class="cap">System</span><div>Vision model on <b>AWS Bedrock</b> maps fields with bounding boxes; corrections re-fed as weighted examples</div></div>
               <div class="spec"><span class="cap">Scale</span><div><b>73 endpoints</b> · tenant-isolated · confidence auto-approve</div></div>
               <div class="spec"><span class="cap">Stack</span><div>FastAPI · Celery · Redis · PostgreSQL · Docker</div></div>
             </div>
-            <div class="panel-actions"><span class="cap">Private — in production</span></div>
+            <div class="panel-actions"><span class="cap">Private · in production</span></div>
           </article>
           <div class="panel panel-end">
             <div>
@@ -573,19 +556,19 @@
     <!-- ============ INDEX ============ -->
     <section class="scene" id="index" style="padding-top: clamp(60px, 8vh, 100px)">
       <div class="plate-head fade">
-        <span class="cap">The index · 2023 — 2026</span>
+        <span class="cap">The index · 2023–2026</span>
         <span class="no">02</span>
       </div>
       <div class="fade">
         <div class="index-head cap"><span>No.</span><span>Project</span><span>Category</span><span style="text-align:right">Status</span></div>
         <a class="index-row" href="https://tracking.cargover.se/" target="_blank" rel="noopener">
-          <span class="n">04</span><span class="t">Cargoverse — Device Tracking</span><span class="c">Logistics portal</span><span class="s live">Live ↗</span>
+          <span class="n">04</span><span class="t">Cargoverse · Device Tracking</span><span class="c">Logistics portal</span><span class="s live">Live ↗</span>
         </a>
         <a class="index-row" href="https://weird-nine.vercel.app/" target="_blank" rel="noopener">
-          <span class="n">05</span><span class="t">Weird — Luxury Fashion</span><span class="c">Cinematic web</span><span class="s live">Live ↗</span>
+          <span class="n">05</span><span class="t">Weird · Luxury Fashion</span><span class="c">Cinematic web</span><span class="s live">Live ↗</span>
         </a>
         <a class="index-row" href="https://shahi-group.vercel.app/" target="_blank" rel="noopener">
-          <span class="n">06</span><span class="t">Shahi Group — Surveying</span><span class="c">Scroll film</span><span class="s live">Live ↗</span>
+          <span class="n">06</span><span class="t">Shahi Group · Surveying</span><span class="c">Scroll film</span><span class="s live">Live ↗</span>
         </a>
         <a class="index-row" href="https://dental-6ze.pages.dev/" target="_blank" rel="noopener">
           <span class="n">07</span><span class="t">Lumina Dental</span><span class="c">Clinic · booking</span><span class="s live">Live ↗</span>
@@ -594,23 +577,23 @@
           <span class="n">08</span><span class="t">S.S. Classic Mould &amp; Dies</span><span class="c">B2B manufacturing</span><span class="s live">Live ↗</span>
         </a>
         <a class="index-row" href="https://momoeka.github.io/Ashwini/" target="_blank" rel="noopener">
-          <span class="n">09</span><span class="t">ARS Architect — Portfolio</span><span class="c">Editorial print</span><span class="s live">Live ↗</span>
+          <span class="n">09</span><span class="t">ARS Architect · Portfolio</span><span class="c">Editorial print</span><span class="s live">Live ↗</span>
         </a>
         <div class="index-row">
-          <span class="n">10</span><span class="t">Payment Processing — MT940</span><span class="c">Fintech</span><span class="s">Private</span>
+          <span class="n">10</span><span class="t">Payment Processing (MT940)</span><span class="c">Fintech</span><span class="s">Private</span>
         </div>
         <a class="index-row" href="https://github.com/Momoeka" target="_blank" rel="noopener">
           <span class="n">11</span><span class="t">Serverless Data Processing</span><span class="c">AWS event-driven</span><span class="s live">Open ↗</span>
         </a>
         <a class="index-row" href="https://github.com/Momoeka/FoReal" target="_blank" rel="noopener">
-          <span class="n">12</span><span class="t">FoReal — CodeCraft</span><span class="c">Realtime collab</span><span class="s live">Open ↗</span>
+          <span class="n">12</span><span class="t">FoReal · CodeCraft</span><span class="c">Realtime collab</span><span class="s live">Open ↗</span>
         </a>
       </div>
     </section>
 
     <!-- ============ NUMBERS ============ -->
     <section class="numbers" aria-label="Key numbers">
-      <div class="num fade"><b><span data-num="96">96</span><i>%</i></b><span class="cap">LLM accuracy — up from 43%</span></div>
+      <div class="num fade"><b><span data-num="96">96</span><i>%</i></b><span class="cap">LLM accuracy, up from 43%</span></div>
       <div class="num fade dd1"><b><span data-num="24">24</span></b><span class="cap">Services in production</span></div>
       <div class="num fade dd2"><b><span data-num="74966">74,966</span></b><span class="cap">Emails evaluated</span></div>
       <div class="num fade dd3"><b><span data-num="2">2</span><i>×</i></b><span class="cap">AWS certified</span></div>
@@ -624,21 +607,21 @@
       </div>
       <div class="about-grid">
         <div class="about-copy">
-          <p class="big fade">Most engineers pick a layer.<br>I own the <em>whole system</em> — from the model call to the metal.</p>
+          <p class="big fade">Most engineers pick a layer.<br>I own the <em>whole system</em>, from the model call to the metal.</p>
           <div class="body fade dd1">
-            <p>By day I'm the sole engineer at <b>Rowan Rose Solicitors</b>, a UK law firm — three live platforms, the LLM workers that automate their claims lifecycle, and the cloud underneath, all mine. I built a golden-set evaluation harness over <b>74,966 classified emails</b> and took classification accuracy from 43% to 96%. When the firm needed off AWS, I planned and ran the <b>production cutover to on-premise</b> — staged configs, DNS switch, documented rollback.</p>
+            <p>By day I'm the sole engineer at <b>Rowan Rose Solicitors</b>, a UK law firm: three live platforms, the LLM workers that automate their claims lifecycle, and the cloud underneath, all mine. I built a golden-set evaluation harness over <b>74,966 classified emails</b> and took classification accuracy from 43% to 96%. When the firm needed off AWS, I planned and ran the <b>production cutover to on-premise</b>: staged configs, DNS switch, documented rollback.</p>
             <p>The rest of the time I build the safety layer for agentic AI: <b>AgentLens</b> grades every tool call an AI coding agent makes before it runs, and <b>Foreman</b> orchestrates multi-agent work through a permission gate, with human approval on anything irreversible.</p>
           </div>
           <ul class="about-facts fade dd2">
             <li><b>AI</b><span>Bedrock vision extraction · three-provider failover chain · self-hosted triage · <strong>eval harnesses</strong></span></li>
-            <li><b>Cloud</b><span>AWS — EC2 · RDS · S3 · Lambda · API Gateway · DynamoDB · Bedrock — <strong>certified ×2</strong></span></li>
+            <li><b>Cloud</b><span>AWS (EC2 · RDS · S3 · Lambda · API Gateway · DynamoDB · Bedrock), <strong>certified ×2</strong></span></li>
             <li><b>Ops</b><span>Docker · Nginx · PM2 · Cloudflare · <strong>AWS ↔ on-prem cutovers</strong></span></li>
-            <li><b>Base</b><span>Mumbai, India — <strong>remote with UK &amp; EU teams</strong> for two years</span></li>
+            <li><b>Base</b><span>Mumbai, India, <strong>remote with UK &amp; EU teams</strong> for two years</span></li>
           </ul>
         </div>
         <figure class="about-fig fade dd1">
           <div class="ph"><img src="images/opt/about.webp" alt="Watercolor portrait of Sayed Mohammad Firdousi in a blazer" width="408" height="612" loading="lazy"></div>
-          <figcaption><span class="cap">S.M. Firdousi</span><span class="cap">Fig. 01 — Mumbai</span></figcaption>
+          <figcaption><span class="cap">S.M. Firdousi</span><span class="cap">Fig. 01 · Mumbai</span></figcaption>
         </figure>
       </div>
     </section>
@@ -650,27 +633,27 @@
         <span class="no">04</span>
       </div>
       <div class="career-row fade">
-        <div class="career-when">2026 — <em>now</em><span class="now">● Current</span></div>
+        <div class="career-when">2026 – <em>now</em><span class="now">● Current</span></div>
         <div>
           <h3 class="career-co">Rowan Rose Solicitors</h3>
-          <p class="career-role">Sole Full-Stack Developer &amp; Cloud Engineer — Remote, UK</p>
-          <p class="career-body">Two production CRMs built solo, from schema to deployment — intake, case management, e-signatures, VoIP, live dashboards. <b>Owns the entire cloud layer</b> across a fleet of 24 services, and ran the AWS → on-premise production cutover.</p>
+          <p class="career-role">Sole Full-Stack Developer &amp; Cloud Engineer · Remote, UK</p>
+          <p class="career-body">Two production CRMs built solo, from schema to deployment: intake, case management, e-signatures, VoIP, live dashboards. <b>Owns the entire cloud layer</b> across a fleet of 24 services, and ran the AWS → on-premise production cutover.</p>
         </div>
       </div>
       <div class="career-row fade">
-        <div class="career-when">2024 — 25</div>
+        <div class="career-when">2024 – 25</div>
         <div>
           <h3 class="career-co">Electrolab Pvt Ltd</h3>
-          <p class="career-role">Business Analyst — Navi Mumbai</p>
+          <p class="career-role">Business Analyst · Navi Mumbai</p>
           <p class="career-body"><b>Cut reporting time by 40%</b> automating data pipelines in Python; built the Plotly KPI dashboards the operations team ran on.</p>
         </div>
       </div>
       <div class="career-row fade">
-        <div class="career-when">2023 — 24</div>
+        <div class="career-when">2023 – 24</div>
         <div>
           <h3 class="career-co">CloudWhiz</h3>
-          <p class="career-role">Freelance Backend &amp; Cloud Engineer — Remote, Netherlands</p>
-          <p class="career-body"><b>10+ delivered projects</b> for international clients — payment processing, API integrations, AWS infrastructure — scoped, built and shipped independently.</p>
+          <p class="career-role">Freelance Backend &amp; Cloud Engineer · Remote, Netherlands</p>
+          <p class="career-body"><b>10+ delivered projects</b> for international clients: payment processing, API integrations, AWS infrastructure. Scoped, built and shipped independently.</p>
         </div>
       </div>
     </section>
@@ -683,15 +666,15 @@
       </div>
       <div class="field-intro">
         <h2 class="field-title fade">Discipline was the <em>first system</em> I built.</h2>
-        <p class="field-note fade dd1">Before the terminals there were parade grounds. NCC cadet years — early mornings, precision under inspection, responsibility for the people beside you.</p>
+        <p class="field-note fade dd1">Before the terminals there were parade grounds. NCC cadet years: early mornings, precision under inspection, responsibility for the people beside you.</p>
       </div>
       <div class="film-wrap" id="filmWrap">
-        <div class="film" id="film" tabindex="0" aria-label="Photographs from NCC cadet years — scroll horizontally">
+        <div class="film" id="film" tabindex="0" aria-label="Photographs from NCC cadet years; scroll horizontally">
           <figure><img src="images/opt/ncc-1.jpg" alt="Cadet standing at attention in full parade dress uniform" width="623" height="859" loading="lazy"><figcaption><i>i.</i>Parade dress</figcaption></figure>
           <figure><img src="images/opt/ncc-2.jpg" alt="Cadet standing post at the academy entrance" width="1400" height="901" loading="lazy"><figcaption><i>ii.</i>Standing post</figcaption></figure>
           <figure><img src="images/opt/ncc-3.jpg" alt="Cadets in prone position on a firing range under instruction" width="1400" height="933" loading="lazy"><figcaption><i>iii.</i>The range</figcaption></figure>
           <figure><img src="images/opt/ncc-4.jpg" alt="A rider clearing a jump on horseback during riding drill" width="1400" height="850" loading="lazy"><figcaption><i>iv.</i>Riding drill</figcaption></figure>
-          <figure><img src="images/opt/ncc-5.jpg" alt="Planche hold on a tiled floor — a straight-arm strength exercise" width="1400" height="788" loading="lazy"><figcaption><i>v.</i>Strength, still daily</figcaption></figure>
+          <figure><img src="images/opt/ncc-5.jpg" alt="Planche hold on a tiled floor, a straight-arm strength exercise" width="1400" height="788" loading="lazy"><figcaption><i>v.</i>Strength, still daily</figcaption></figure>
         </div>
       </div>
       <div class="field-drag" aria-hidden="true">
@@ -703,7 +686,7 @@
     <!-- ============ RECORD ============ -->
     <section class="scene" id="record">
       <div class="plate-head fade">
-        <span class="cap">The record — tools, papers, words</span>
+        <span class="cap">The record · tools &amp; papers</span>
         <span class="no">06</span>
       </div>
       <div class="record-grid">
@@ -721,8 +704,8 @@
         <div class="rec-col fade dd1">
           <h3>Cloud / Ops</h3>
           <ul>
-            <li title="EC2 · RDS · S3 · Lambda · API Gateway · DynamoDB">AWS — 7 services</li>
-            <li title="Containerised services — KodeKloud certified">Docker</li>
+            <li title="EC2 · RDS · S3 · Lambda · API Gateway · DynamoDB">AWS · 7 services</li>
+            <li title="Containerised services, KodeKloud certified">Docker</li>
             <li title="Reverse proxy in production">Nginx</li>
             <li title="Fleet of 24 managed services">PM2</li>
             <li title="DNS, TLS and Turnstile">Cloudflare</li>
@@ -755,38 +738,29 @@
 
       <div class="creds fade">
         <p class="cap" style="margin-bottom:16px; color:var(--saffron)">Certifications</p>
-        <button class="cred-row" data-lightbox="images/opt/cert-aws.jpg" data-cap="AWS Certified Cloud Practitioner — Jun 2024">
-          <span class="t">AWS Certified Cloud Practitioner</span><span class="o">Amazon Web Services — 2024</span><span class="v">View ↗</span>
+        <button class="cred-row" data-lightbox="images/opt/cert-aws.jpg" data-cap="AWS Certified Cloud Practitioner · Jun 2024">
+          <span class="t">AWS Certified Cloud Practitioner</span><span class="o">Amazon Web Services · 2024</span><span class="v">View ↗</span>
         </button>
         <div class="cred-row">
-          <span class="t">AWS Knowledge — Amazon EKS</span><span class="o">Amazon Web Services — 2024</span><span class="v" style="border:0"></span>
+          <span class="t">AWS Knowledge · Amazon EKS</span><span class="o">Amazon Web Services · 2024</span><span class="v" style="border:0"></span>
         </div>
-        <button class="cred-row" data-lightbox="images/opt/cert-kodekloud.jpg" data-cap="KodeKloud — Docker Training Course — May 2024">
-          <span class="t">Docker Training Course</span><span class="o">KodeKloud — 2024</span><span class="v">View ↗</span>
+        <button class="cred-row" data-lightbox="images/opt/cert-kodekloud.jpg" data-cap="KodeKloud · Docker Training Course · May 2024">
+          <span class="t">Docker Training Course</span><span class="o">KodeKloud · 2024</span><span class="v">View ↗</span>
         </button>
       </div>
       <div class="creds fade" style="margin-top: clamp(40px, 6vh, 64px)">
         <p class="cap" style="margin-bottom:16px; color:var(--saffron)">Education</p>
         <div class="cred-row">
-          <span class="t">M.Tech Computer Science <span class="it">(in progress)</span></span><span class="o">RGPV Bhopal — 2025 · 27</span><span class="v" style="border:0"></span>
+          <span class="t">M.Tech Computer Science <span class="it">(in progress)</span></span><span class="o">RGPV Bhopal · 2025–27</span><span class="v" style="border:0"></span>
         </div>
         <div class="cred-row">
-          <span class="t">B.Tech Computer Science</span><span class="o">RGPV Bhopal — 2022 · 25</span><span class="v" style="border:0"></span>
+          <span class="t">B.Tech Computer Science</span><span class="o">RGPV Bhopal · 2022–25</span><span class="v" style="border:0"></span>
         </div>
         <div class="cred-row">
-          <span class="t">Diploma, Electronics Engineering</span><span class="o">Jamia Millia Islamia — 2019 · 22</span><span class="v" style="border:0"></span>
+          <span class="t">Diploma, Electronics Engineering</span><span class="o">Jamia Millia Islamia · 2019–22</span><span class="v" style="border:0"></span>
         </div>
       </div>
 
-      <div class="words fade">
-        <span class="cap">Words from clients</span>
-        <div class="qbox" id="qbox" aria-live="polite"></div>
-        <div class="q-nav">
-          <button id="qPrev" aria-label="Previous quote">← prev</button>
-          <span class="cap q-idx" id="qIdx">01 / 06</span>
-          <button id="qNext" aria-label="Next quote">next →</button>
-        </div>
-      </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
@@ -805,15 +779,15 @@
           <a href="mailto:mohammadsayed722@gmail.com">mohammadsayed722@gmail.com</a>
         </div>
         <div class="contact-meta fade dd3">
-          <button class="copy" data-copy="mohammadsayed722@gmail.com">Copy email<span class="tick">✓ copied</span></button>
+          <button class="copy" data-copy="mohammadsayed722@gmail.com">Copy email<span class="tick">copied</span></button>
           <a href="https://github.com/Momoeka" target="_blank" rel="noopener">GitHub ↗</a>
           <a href="https://www.linkedin.com/in/sayed-mohammad-firdousi-7895951a7/" target="_blank" rel="noopener">LinkedIn ↗</a>
           <a href="https://drive.google.com/file/d/1RNTLHskUPCs1zduobHiPc2FzByzPbNfA/view?usp=sharing" target="_blank" rel="noopener">Résumé ↗</a>
-          <button class="copy" data-copy="+91 8929023900">+91 89290 23900<span class="tick">✓</span></button>
+          <button class="copy" data-copy="+91 8929023900">+91 89290 23900<span class="tick">copied</span></button>
         </div>
       </div>
       <div class="foot">
-        <span class="cap">© <span id="year"></span> — designed &amp; built by <b>S.M. Firdousi</b>, no frameworks</span>
+        <span class="cap">© <span id="year"></span> · designed &amp; built by <b>S.M. Firdousi</b>, no frameworks</span>
         <button class="cap" id="toTop">Back to top ↑</button>
       </div>
     </section>
@@ -1210,33 +1184,6 @@
       });
     }
 
-    /* ================= quotes ================= */
-    (function () {
-      const box = $('#qbox'), idx = $('#qIdx');
-      if (!box) return;
-      const QUOTES = [
-        ['Mohammad built our entire backend infrastructure from scratch. His understanding of AWS and Node.js is exceptional. Delivered ahead of schedule with clean, maintainable code.', 'Rajesh Kumar', 'CTO, CloudNine Solutions — India'],
-        ['We hired Mohammad for a complex serverless migration. He redesigned our entire data pipeline on AWS Lambda and reduced our infrastructure costs by 60%.', 'Andi Saputra', 'Founder, StackForge Labs — Indonesia'],
-        ['Outstanding backend developer. Mohammad integrated our payment system with PostgreSQL and REST APIs flawlessly. His communication is top-notch.', 'Maria Clara Santos', 'Engineering Lead, NovaByte Tech — Philippines'],
-        ['Mohammad transformed our legacy system into a modern cloud-native architecture. His expertise in Docker, AWS, and Python saved us months.', 'Ahmad Lokman', 'VP of Engineering, Nimbus Cloud — Malaysia'],
-        ['Incredible work on our API gateway and microservices. Mohammad delivered a scalable solution that handles thousands of requests per second.', 'Lucas Ferreira', 'Tech Director, Cumulus Backend — Brazil'],
-        ['Working with Mohammad was a game-changer for our startup. He built our entire cloud infrastructure on AWS and made our deployments seamless.', 'Priya Sharma', 'Co-Founder, HexaNode Technologies — India']
-      ];
-      box.innerHTML = QUOTES.map(([q, n, r], i) =>
-        `<blockquote class="q${i === 0 ? ' show' : ''}"><p>${q}”</p><cite><b>${n}</b> — ${r}</cite></blockquote>`).join('');
-      const els = $$('.q', box);
-      let cur = 0, timer = null;
-      function go(n) {
-        els[cur].classList.remove('show');
-        cur = (n + els.length) % els.length;
-        els[cur].classList.add('show');
-        idx.textContent = String(cur + 1).padStart(2, '0') + ' / ' + String(els.length).padStart(2, '0');
-      }
-      function arm() { clearInterval(timer); timer = setInterval(() => { if (!document.hidden) go(cur + 1); }, 7000); }
-      $('#qPrev').addEventListener('click', () => { go(cur - 1); arm(); });
-      $('#qNext').addEventListener('click', () => { go(cur + 1); arm(); });
-      arm();
-    })();
 
     /* ================= progress + clock + misc ================= */
     const progBar = $('#progBar'), progPct = $('#progPct');
@@ -1278,7 +1225,7 @@
       });
     });
 
-    console.log('%c Firdousi %c AI systems that stay up — mohammadsayed722@gmail.com ',
+    console.log('%c Firdousi %c AI systems that stay up · mohammadsayed722@gmail.com ',
       'background:#E8752A;color:#0A0908;font-weight:bold;padding:4px 8px;',
       'background:#0A0908;color:#F1ECE2;padding:4px 8px;');
 
