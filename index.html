@@ -179,7 +179,7 @@
     .hero-cue i { display: block; width: 1px; height: 26px; background: var(--mut); position: relative; overflow: hidden; }
     .hero-cue i::after { content: ""; position: absolute; left: 0; top: -8px; width: 1px; height: 8px; background: var(--saffron); animation: cuedrop 1.7s ease-in-out infinite; }
     @keyframes cuedrop { to { top: 28px; } }
-    #dust { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+    #dust, #dustBase { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
     .hero-static { position: absolute; top: 6svh; left: 50%; transform: translateX(-44%); height: 74svh; z-index: 1; display: none; }
     .hero-static img { height: 100%; width: auto; }
     html.rm #dust { display: none; }
@@ -477,6 +477,7 @@
     <!-- ============ SCENE 1 — HERO ============ -->
     <header class="hero" id="top">
       <div class="hero-pin" id="heroPin">
+        <canvas id="dustBase" aria-hidden="true"></canvas>
         <canvas id="dust" aria-hidden="true"></canvas>
         <div class="hero-static" aria-hidden="true"><img src="images/opt/first.webp" alt="" width="408" height="612"></div>
         <p class="hero-side hjs" aria-hidden="true">AI &amp; Cloud Engineer — Est. Mumbai</p>
@@ -518,30 +519,32 @@
         <div class="cine-track" id="cineTrack">
           <article class="panel">
             <span class="panel-num" aria-hidden="true">01</span>
+            <p class="panel-head cap"><span class="sa">● Open source</span><span>Multi-agent orchestration · LangGraph + MCP</span></p>
+            <h3 class="panel-title">Fore<em>man.</em></h3>
+            <p class="panel-take">A supervisor plans, specialists act, a separate reviewer model checks every result — <b>irreversible actions wait for a human</b>.</p>
+            <div class="panel-specs">
+              <div class="spec"><span class="cap">System</span><div>Specialist agents act through a <b>permission gate</b>; a reviewer model checks every result; OpenTelemetry traces every model and tool call</div></div>
+              <div class="spec"><span class="cap">Proof</span><div>Three-tier memory · checkpointed tasks with replay from any step · <b>zero unapproved destructive actions</b> in the eval harness</div></div>
+              <div class="spec"><span class="cap">Stack</span><div>LangGraph · Celery · OpenTelemetry · Python</div></div>
+            </div>
+            <div class="panel-actions">
+              <a class="u-link" href="https://github.com/Momoeka/Agent-Orchestration-System" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </article>
+          <article class="panel">
+            <span class="panel-num" aria-hidden="true">02</span>
             <p class="panel-head cap"><span class="sa">● Live</span><span>Production SaaS · npm CLI</span></p>
             <h3 class="panel-title">Agent<em>Lens.</em></h3>
             <p class="panel-take">Shows you what your AI coding agent <b>actually did</b> — every tool call in plain English, graded for risk.</p>
             <div class="panel-specs">
               <div class="spec"><span class="cap">System</span><div>Gemini → OpenAI → Claude failover chain grades every intercepted call <b>safe / risky / destructive</b></div></div>
-              <div class="spec"><span class="cap">Scale</span><div><b>47 endpoints</b> · 3 LLM providers · published CLI</div></div>
+              <div class="spec"><span class="cap">Scale</span><div><b>47 endpoints</b> · 3 LLM providers · published CLI with team access control &amp; session auditing</div></div>
               <div class="spec"><span class="cap">Stack</span><div>Next.js 16 · React 19 · TypeScript · Supabase · Redis</div></div>
             </div>
             <div class="panel-actions">
               <a class="u-link" href="https://agent-lens-gamma.vercel.app/" target="_blank" rel="noopener">Visit live ↗</a>
               <a class="u-link" href="https://github.com/Momoeka" target="_blank" rel="noopener">GitHub ↗</a>
             </div>
-          </article>
-          <article class="panel">
-            <span class="panel-num" aria-hidden="true">02</span>
-            <p class="panel-head cap"><span class="sa">● In production</span><span>Rowan Rose Solicitors · Private</span></p>
-            <h3 class="panel-title">Legal &amp; Sales <em>CRM.</em></h3>
-            <p class="panel-take">Two CRMs a UK law firm runs on daily — <b>built, deployed and maintained by one engineer</b>.</p>
-            <div class="panel-specs">
-              <div class="spec"><span class="cap">System</span><div>Intake → complaint → ombudsman with <b>LLM workers</b> reading lender packs; SIP.js dialer &amp; live floor monitor</div></div>
-              <div class="spec"><span class="cap">Scale</span><div><b>24 services · 380+ endpoints · 127 migrations</b></div></div>
-              <div class="spec"><span class="cap">Stack</span><div>React · Node.js · PostgreSQL · Socket.IO · AWS · PM2</div></div>
-            </div>
-            <div class="panel-actions"><span class="cap">Private — in production</span></div>
           </article>
           <article class="panel">
             <span class="panel-num" aria-hidden="true">03</span>
@@ -624,7 +627,7 @@
           <p class="big fade">Most engineers pick a layer.<br>I own the <em>whole system</em> — from the model call to the metal.</p>
           <div class="body fade dd1">
             <p>By day I'm the sole engineer at <b>Rowan Rose Solicitors</b>, a UK law firm — three live platforms, the LLM workers that automate their claims lifecycle, and the cloud underneath, all mine. I built a golden-set evaluation harness over <b>74,966 classified emails</b> and took classification accuracy from 43% to 96%. When the firm needed off AWS, I planned and ran the <b>production cutover to on-premise</b> — staged configs, DNS switch, documented rollback.</p>
-            <p>The rest of the time I build the safety layer for agentic AI: <b>AgentLens</b> grades every tool call an AI coding agent makes before it runs.</p>
+            <p>The rest of the time I build the safety layer for agentic AI: <b>AgentLens</b> grades every tool call an AI coding agent makes before it runs, and <b>Foreman</b> orchestrates multi-agent work through a permission gate, with human approval on anything irreversible.</p>
           </div>
           <ul class="about-facts fade dd2">
             <li><b>AI</b><span>Bedrock vision extraction · three-provider failover chain · self-hosted triage · <strong>eval harnesses</strong></span></li>
@@ -896,11 +899,13 @@
 
     /* ================= PARTICLE PORTRAIT ================= */
     (function () {
-      const canvas = $('#dust');
-      if (!canvas || RM) return;
+      const canvas = $('#dust'), base = $('#dustBase');
+      if (!canvas || !base || RM) return;
       const ctx = canvas.getContext('2d');
+      const bctx = base.getContext('2d');
       const DPR = Math.min(1.5, devicePixelRatio || 1);
-      let W = 0, H = 0, buf = null, buf32 = null, parts = [], ready = false, heroGone = false;
+      let W = 0, H = 0, buf = null, buf32 = null, parts = [], ready = false;
+      let iw = 0, ih = 0, ox = 0, oy = 0, born = 0;
 
       const img = new Image();
       img.src = 'images/opt/first.webp';
@@ -912,22 +917,23 @@
         const r = pin.getBoundingClientRect();
         W = Math.round(r.width * DPR); H = Math.round(r.height * DPR);
         canvas.width = W; canvas.height = H;
+        base.width = W; base.height = H;
         buf = ctx.createImageData(W, H);
         buf32 = new Uint32Array(buf.data.buffer);
 
         // sample the portrait
         const targetH = innerHeight * 0.76 * DPR;
         const scale = targetH / img.naturalHeight;
-        const iw = Math.round(img.naturalWidth * scale), ih = Math.round(targetH);
+        iw = Math.round(img.naturalWidth * scale); ih = Math.round(targetH);
         const off = document.createElement('canvas');
         const step = Math.max(2, Math.round((innerWidth < 700 ? 3 : 2) * DPR));
         off.width = iw; off.height = ih;
         const octx = off.getContext('2d', { willReadFrequently: true });
         octx.drawImage(img, 0, 0, iw, ih);
         let data;
-        try { data = octx.getImageData(0, 0, iw, ih).data; } catch (e) { canvas.remove(); document.querySelector('.hero-static').style.display = 'block'; return; }
-        const ox = Math.round(W * 0.5 - iw * 0.5);
-        const oy = Math.round(H * 0.05);
+        try { data = octx.getImageData(0, 0, iw, ih).data; } catch (e) { canvas.remove(); base.remove(); document.querySelector('.hero-static').style.display = 'block'; return; }
+        ox = Math.round(W * 0.5 - iw * 0.5);
+        oy = Math.round(H * 0.05);
         parts = [];
         for (let y = 0; y < ih; y += step) {
           for (let x = 0; x < iw; x += step) {
@@ -951,43 +957,75 @@
             if (parts.length > 24000) { y = ih; break; }
           }
         }
-        ready = true;
+        ready = true; born = performance.now();
       }
 
       let mx = -1e4, my = -1e4;
       modules.push((t) => {
         if (!ready) return;
         const r = hero.getBoundingClientRect();
-        heroGone = r.bottom <= 0;
-        if (heroGone) { return; }
+        if (r.bottom <= 0) return;
         // dissolve in the second half of the pinned scene
         const sp = clamp01(-r.top / ((r.height - innerHeight) || 1));
-        const p = clamp01((sp - 0.52) / 0.44);
-        canvas.style.opacity = String(1 - p * 1.05);
+        const ex = clamp01((sp - 0.52) / 0.44);
+        // crossfade from the assembly dust to the crisp photo, once settled
+        const settle = clamp01((t - born - 1300) / 500);
+        const solid = settle * (1 - clamp01(ex * 4));
+        canvas.style.opacity = String(1 - ex * 1.05);
+        base.style.opacity = String(1 - ex * 1.05);
         if (ptr.active) {
           const pr = pin.getBoundingClientRect();
           mx = (ptr.x - pr.left) * DPR; my = (ptr.y - pr.top) * DPR;
         }
         const RAD = 95 * DPR, RAD2 = RAD * RAD;
+
+        // base layer: the crisp portrait, with a soft hole punched under the cursor
+        bctx.clearRect(0, 0, W, H);
+        if (solid > 0.01) {
+          bctx.globalAlpha = solid;
+          bctx.imageSmoothingEnabled = true; bctx.imageSmoothingQuality = 'high';
+          bctx.drawImage(img, ox, oy, iw, ih);
+          bctx.globalAlpha = 1;
+          if (mx > ox - RAD && mx < ox + iw + RAD && my > oy - RAD && my < oy + ih + RAD) {
+            const g = bctx.createRadialGradient(mx, my, 0, mx, my, RAD);
+            g.addColorStop(0, 'rgba(0,0,0,1)');
+            g.addColorStop(.7, 'rgba(0,0,0,.95)');
+            g.addColorStop(1, 'rgba(0,0,0,0)');
+            bctx.globalCompositeOperation = 'destination-out';
+            bctx.fillStyle = g;
+            bctx.beginPath(); bctx.arc(mx, my, RAD, 0, 7); bctx.fill();
+            bctx.globalCompositeOperation = 'source-over';
+          }
+        }
+
+        // particle layer: everything while assembling/exploding,
+        // only the cursor's neighbourhood while the photo is solid
         buf32.fill(0);
-        const time = t * 0.001;
+        const full = solid < 0.99;
         for (let i = 0; i < parts.length; i++) {
           const pt = parts[i];
-          // target = home + explosion by scroll + idle wander
-          const wx = Math.sin(time * 0.7 + pt.ph) * pt.amp;
-          const wy = Math.cos(time * 0.9 + pt.ph) * pt.amp;
-          const tx = pt.hx + wx + Math.cos(pt.exd) * pt.exm * p;
-          const ty = pt.hy + wy + Math.sin(pt.exd) * pt.exm * p - 160 * DPR * p;
+          const tx = pt.hx + Math.cos(pt.exd) * pt.exm * ex;
+          const ty = pt.hy + Math.sin(pt.exd) * pt.exm * ex - 160 * DPR * ex;
+          if (!full) {
+            const hdx = pt.hx - mx, hdy = pt.hy - my;
+            const cdx = pt.x - mx, cdy = pt.y - my;
+            if (hdx * hdx + hdy * hdy > RAD2 * 2.8 && cdx * cdx + cdy * cdy > RAD2 * 2.8) {
+              pt.x = tx; pt.y = ty; continue; // resting, hidden under the photo
+            }
+          }
           pt.x += (tx - pt.x) * pt.e;
           pt.y += (ty - pt.y) * pt.e;
-          // cursor repulsion
           const dx = pt.x - mx, dy = pt.y - my;
           const d2 = dx * dx + dy * dy;
           if (d2 < RAD2 && d2 > 0.01) {
             const d = Math.sqrt(d2);
             const f = (RAD - d) / RAD;
-            pt.x += (dx / d) * f * 10 * DPR;
-            pt.y += (dy / d) * f * 10 * DPR;
+            pt.x += (dx / d) * f * 11 * DPR;
+            pt.y += (dy / d) * f * 11 * DPR;
+          }
+          if (!full) {
+            const ddx = pt.x - pt.hx, ddy = pt.y - pt.hy;
+            if (ddx * ddx + ddy * ddy < 0.5) continue; // visually identical to the photo
           }
           const xi = pt.x | 0, yi = pt.y | 0;
           if (xi < 1 || xi >= W - 1 || yi < 1 || yi >= H - 1) continue;
